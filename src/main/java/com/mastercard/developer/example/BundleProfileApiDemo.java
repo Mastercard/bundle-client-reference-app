@@ -7,7 +7,7 @@ import com.mastercard.developer.bundle_client.ApiClient;
 import com.mastercard.developer.bundle_client.ApiException;
 import com.mastercard.developer.bundle_client.api.BundleProfileApi;
 import com.mastercard.developer.interceptors.OkHttpOAuth1Interceptor;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.codehaus.jackson.map.ObjectMapper;
 import java.io.*;
 import java.util.*;
 
