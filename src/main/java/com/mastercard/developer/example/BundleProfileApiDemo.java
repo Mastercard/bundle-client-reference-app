@@ -21,7 +21,12 @@ public class BundleProfileApiDemo {
 
         ApiClient apiClient = new ApiClient();
         apiClient.setBasePath(RequestHelper.getBaseURL());
-        apiClient.getHttpClient().newBuilder().interceptors().add(new OkHttpOAuth1Interceptor(RequestHelper.getConsumerkey(), RequestHelper.getPrivateKey()));
+		apiClient.setHttpClient(
+                apiClient.getHttpClient()
+                        .newBuilder()
+                        .addInterceptor(new OkHttpOAuth1Interceptor(RequestHelper.getConsumerkey(), RequestHelper.getPrivateKey()))
+                        .build()
+        );
         apiClient.setDebugging(false);
 
         BundleProfileApi bundleProfileApi = new BundleProfileApi(apiClient);
