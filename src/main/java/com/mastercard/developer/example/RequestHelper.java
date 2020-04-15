@@ -38,7 +38,7 @@ public class RequestHelper{
         try {
 
             ks = KeyStore.getInstance("PKCS12");
-            InputStream is = getResourceStream(KEYSTORE_PATH);
+            InputStream is = getResourceStream(prop.getProperty(KEYSTORE_PATH));
             ks.load(is, prop.getProperty(KEYSTORE_PASSWORD).toCharArray());
             Enumeration aliases = ks.aliases();
             String keyAlias = "";
