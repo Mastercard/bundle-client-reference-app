@@ -41,7 +41,7 @@ import java.util.Map;
 public class BundleProfileApi {
     private ApiClient localVarApiClient;
 
-    private static String RESOURCE_URL_PREFIX = "apiexplorer/bundle/profile";
+    private static String RESOURCE_URL_PREFIX = "bundle-ref/profile";
 
     public BundleProfileApi() {
         this(Configuration.getDefaultApiClient());
