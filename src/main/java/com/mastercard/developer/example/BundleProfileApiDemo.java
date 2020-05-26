@@ -2,14 +2,15 @@ package com.mastercard.developer.example;
 
 
 import com.google.gson.Gson;
-import com.mastercard.developer.bundle_client.model.*;
 import com.mastercard.developer.bundle_client.ApiClient;
 import com.mastercard.developer.bundle_client.ApiException;
 import com.mastercard.developer.bundle_client.api.BundleProfileApi;
+import com.mastercard.developer.bundle_client.model.BundleUser;
+import com.mastercard.developer.bundle_client.model.BundleUserPatch;
+import com.mastercard.developer.bundle_client.model.BundleUserResponse;
 import com.mastercard.developer.interceptors.OkHttpOAuth1Interceptor;
-import org.codehaus.jackson.map.ObjectMapper;
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 
 public class BundleProfileApiDemo {
@@ -21,7 +22,7 @@ public class BundleProfileApiDemo {
 
         ApiClient apiClient = new ApiClient();
         apiClient.setBasePath(RequestHelper.getBaseURL());
-		apiClient.setHttpClient(
+        apiClient.setHttpClient(
                 apiClient.getHttpClient()
                         .newBuilder()
                         .addInterceptor(new OkHttpOAuth1Interceptor(RequestHelper.getConsumerkey(), RequestHelper.getPrivateKey()))
@@ -31,203 +32,100 @@ public class BundleProfileApiDemo {
 
         BundleProfileApi bundleProfileApi = new BundleProfileApi(apiClient);
 
+
         if (runThisScenario(args, "readUser")) {
+            printMessage("STARTING GET USER FOR BUNDLE PROFILE");
             executeGetBundleUserScenario(bundleProfileApi);
         }
 
         if (runThisScenario(args, "createUser")) {
-            executeCreateBundleUserScenario(bundleProfileApi);
+            printMessage("STARTING CREATE USER FOR BUNDLE PROFILE");
+            String[] supportedProducts = RequestHelper.SUPPORTED_PRODUCTS.split(",");
+            for (String product : supportedProducts) {
+                executeCreateBundleUserScenario(bundleProfileApi, product);
+            }
         }
 
         if (runThisScenario(args, "addProduct")) {
-            executeAddProductBundleUserScenario(bundleProfileApi);
+            printMessage("STARTING ADD PRODUCT FOR BUNDLE PROFILE");
+            executeAddProductBundleUserScenario(bundleProfileApi, RequestHelper.PRODUCT);
         }
 
         if (runThisScenario(args, "addAccount")) {
+            printMessage("STARTING ADD ACCOUNT FOR BUNDLE PROFILE");
             executeAddAccountBundleUserScenario(bundleProfileApi);
         }
 
         if (runThisScenario(args, "removeAccount")) {
+            printMessage("STARTING REMOVE ACCOUNT FOR BUNDLE PROFILE");
             executeRemoveAccountBundleUserScenario(bundleProfileApi);
         }
 
         if (runThisScenario(args, "replaceAccount")) {
+            printMessage("STARTING REPLACE ACCOUNT FOR BUNDLE PROFILE");
             executeReplaceAccountBundleUserScenario(bundleProfileApi);
         }
 
         if (runThisScenario(args, "replaceUser")) {
-            executeReplaceUserDetailScenario(bundleProfileApi);
+            printMessage("STARTING REPLACE USER FOR BUNDLE PROFILE");
+            executeReplaceUserDetailScenario(bundleProfileApi, RequestHelper.PRODUCT);
         }
     }
 
 
     private static void executeGetBundleUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
         Gson gson = new Gson();
-        printMessage("STARTING GET USER FOR BUNDLE PROFILE");
-        String userID = "specialpayUser";
-        String xClientCorrelationId = "bundle-reference-app-stage";
-        BundleUserResponse  bundleUserResponse = bundleProfileApi.readUser(userID, xClientCorrelationId);
+        BundleUserResponse bundleUserResponse = bundleProfileApi.readUser(RequestHelper.USER_ID, RequestHelper.X_Client_CORRELEATION_ID);
         System.out.println(gson.toJson(bundleUserResponse));
 
     }
 
-    private static void executeCreateBundleUserScenario(BundleProfileApi bundleProfileApi) throws IOException, ApiException {
-        printMessage("STARTING CREATE USER FOR BUNDLE PROFILE");
-        String xClientCorrelationId = "bundle-reference-app-stage";
-        ObjectMapper mapper = new ObjectMapper();
+    private static void executeCreateBundleUserScenario(BundleProfileApi bundleProfileApi, String product) throws IOException, ApiException {
         Gson gson = new Gson();
-        ArrayList<InputStream> createUserPayload = RequestHelper.getPostBody();
-        for (InputStream createProductBasedUser : createUserPayload) {
-            BundleUser userBody = mapper.readValue(createProductBasedUser, BundleUser.class);
-            BundleUserResponse  bundleUserResponse =   bundleProfileApi.createUser(userBody, xClientCorrelationId);
-            System.out.println(gson.toJson(bundleUserResponse));
-        }
+        BundleUser createUserPayload = RequestHelper.getRegistrationObject(product);
+        BundleUserResponse bundleUserResponse = bundleProfileApi.createUser(createUserPayload, RequestHelper.X_Client_CORRELEATION_ID);
+        System.out.println(gson.toJson(bundleUserResponse));
     }
 
-    private static void executeAddProductBundleUserScenario(BundleProfileApi bundleProfileApi) throws IOException, ApiException {
-        printMessage("STARTING ADD PRODUCT FOR BUNDLE PROFILE");
-        String xClientCorrelationId = "bundle-reference-app-stage";
-        ObjectMapper mapper = new ObjectMapper();
+
+    private static void executeAddProductBundleUserScenario(BundleProfileApi bundleProfileApi, String addProduct) throws IOException, ApiException {
         Gson gson = new Gson();
-        ArrayList<InputStream> patchUserPayload = RequestHelper.getAddProductBody();
-        for (InputStream createProductBasedUser : patchUserPayload) {
-            BundleUserPatch userBody = mapper.readValue(createProductBasedUser, BundleUserPatch.class);
-            BundleUserResponse  bundleUserResponse = bundleProfileApi.patchUser(userBody.getPatch().get(0).getValue().getData().getUser().getUserId(), userBody, xClientCorrelationId);
-            System.out.println(gson.toJson(bundleUserResponse));
-        }
+        BundleUserPatch bundleUserPatch = RequestHelper.createAddProductPayload(addProduct);
+        BundleUserResponse bundleUserResponse = bundleProfileApi.patchUser(bundleUserPatch.getPatch().get(0).getValue().getData().getUser().getUserId(), bundleUserPatch, RequestHelper.X_Client_CORRELEATION_ID);
+        System.out.println(gson.toJson(bundleUserResponse));
+
     }
 
     private static void executeAddAccountBundleUserScenario(BundleProfileApi bundleProfileApi) throws ApiException, UnsupportedEncodingException {
-        printMessage("STARTING ADD ACCOUNT FOR BUNDLE PROFILE");
-        String userID = "specialpayUser";
-        String xClientCorrelationId = "bundle-reference-app-stage";
         Gson gson = new Gson();
-        ObjectMapper mapper = new ObjectMapper();
-        BundleUserPatch bundleUserPatch = createAddAccountPayload();
-        BundleUserResponse  bundleUserResponse =  bundleProfileApi.patchUser(userID, bundleUserPatch, xClientCorrelationId);
+        BundleUserPatch bundleUserPatch = RequestHelper.createAddAccountPayload();
+        BundleUserResponse bundleUserResponse = bundleProfileApi.patchUser(RequestHelper.USER_ID, bundleUserPatch, RequestHelper.X_Client_CORRELEATION_ID);
         System.out.println(gson.toJson(bundleUserResponse));
     }
 
 
     private static void executeRemoveAccountBundleUserScenario(BundleProfileApi bundleProfileApi) throws ApiException, UnsupportedEncodingException {
-        printMessage("STARTING REMOVE ACCOUNT FOR BUNDLE PROFILE");
-        String userID = "specialpayUser";
-        String xClientCorrelationId = "bundle-reference-app-stage";
         Gson gson = new Gson();
-        ObjectMapper mapper = new ObjectMapper();
-        BundleUserPatch bundleUserPatch = createRemoveAccountPayload();
-        BundleUserResponse  bundleUserResponse = bundleProfileApi.patchUser(userID, bundleUserPatch, xClientCorrelationId);
+        BundleUserPatch bundleUserPatch = RequestHelper.createRemoveAccountPayload();
+        BundleUserResponse bundleUserResponse = bundleProfileApi.patchUser(RequestHelper.USER_ID, bundleUserPatch, RequestHelper.X_Client_CORRELEATION_ID);
         System.out.println(gson.toJson(bundleUserResponse));
     }
 
     private static void executeReplaceAccountBundleUserScenario(BundleProfileApi bundleProfileApi) throws ApiException, UnsupportedEncodingException {
-        printMessage("STARTING REPLACE ACCOUNT FOR BUNDLE PROFILE");
-        String userID = "specialpayUser";
-        String xClientCorrelationId = "bundle-reference-app-stage";
         Gson gson = new Gson();
-        ObjectMapper mapper = new ObjectMapper();
-        BundleUserPatch bundleUserPatch = createReplaceAccountPayload();
-        BundleUserResponse  bundleUserResponse =  bundleProfileApi.patchUser(userID, bundleUserPatch, xClientCorrelationId);
+        BundleUserPatch bundleUserPatch = RequestHelper.createReplaceAccountPayload();
+        BundleUserResponse bundleUserResponse = bundleProfileApi.patchUser(RequestHelper.USER_ID, bundleUserPatch, RequestHelper.X_Client_CORRELEATION_ID);
         System.out.println(gson.toJson(bundleUserResponse));
     }
 
-    private static void executeReplaceUserDetailScenario(BundleProfileApi bundleProfileApi) throws ApiException, IOException {
-        printMessage("STARTING REPLACE USER FOR BUNDLE PROFILE");
-        String userID = "specialpayUser";
-        String xClientCorrelationId = "bundle-reference-app-stage";
-        ObjectMapper mapper = new ObjectMapper();
+    private static void executeReplaceUserDetailScenario(BundleProfileApi bundleProfileApi, String userUpdate) throws ApiException, IOException {
         Gson gson = new Gson();
-        ArrayList<InputStream> patchUserPayload = RequestHelper.getUserUpdateBody();
-        for (InputStream createProductBasedUser : patchUserPayload) {
-            BundleUserPatch userBody = mapper.readValue(createProductBasedUser, BundleUserPatch.class);
-            BundleUserResponse  bundleUserResponse =  bundleProfileApi.patchUser(userID, userBody, xClientCorrelationId);
-            System.out.println(gson.toJson(bundleUserResponse));
-        }
+        BundleUserPatch bundleUserPatch = RequestHelper.createReplaceUserPayload(userUpdate);
+        BundleUserResponse bundleUserResponse = bundleProfileApi.patchUser(RequestHelper.USER_ID, bundleUserPatch, RequestHelper.X_Client_CORRELEATION_ID);
+        System.out.println(gson.toJson(bundleUserResponse));
     }
 
 
-
-
-    private static BundleUserPatch createAddAccountPayload() {
-        BundleUserPatch bundleUserPatch = new BundleUserPatch();
-        List<PatchDocument> patchDocumentList = new ArrayList<PatchDocument>();
-        PatchDocument patchDocument = new PatchDocument();
-        PatchDocumentValue patchDocumentValue = new PatchDocumentValue();
-        BundleUserData bundleUserData = new BundleUserData();
-        UserProduct userProduct = new UserProduct();
-        Account account = new Account();
-        account.setPan("5000000000000000");
-        account.setIca(1017L);
-        account.setCvcCode("876");
-        account.setCardExpiryDate("02/2022");
-        account.setNameOnCard("nameOnCard");
-        account.setAccountType("accountType");
-        Object object = new Object();
-        account.setObject(object);
-        List<Account> accounts = new ArrayList<>();
-        accounts.add(account);
-        patchDocument.setOp("add");
-        patchDocument.setPath("$.data.products[?(@.product=='')].account");
-        patchDocument.setFrom("string");
-        patchDocument.setValue(patchDocumentValue);
-        patchDocumentValue.setAccounts(accounts);
-        patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
-        return bundleUserPatch;
-    }
-
-    private static BundleUserPatch createRemoveAccountPayload() {
-        BundleUserPatch bundleUserPatch = new BundleUserPatch();
-        List<PatchDocument> patchDocumentList = new ArrayList<PatchDocument>();
-        PatchDocument patchDocument = new PatchDocument();
-        PatchDocumentValue patchDocumentValue = new PatchDocumentValue();
-        BundleUserData bundleUserData = new BundleUserData();
-        UserProduct userProduct = new UserProduct();
-        Account account = new Account();
-        account.setPan("5000000000000000");
-        List<Account> accounts = new ArrayList<>();
-        accounts.add(account);
-        userProduct.setAccounts(accounts);
-        List<UserProduct> products = new ArrayList<>();
-        products.add(userProduct);
-        bundleUserData.setProducts(products);
-        patchDocument.setOp("remove");
-        patchDocument.setPath("$.data.products[?(@.product=='')].accounts[?(@.pan=='5000000000000000')]");
-        patchDocument.setFrom("string");
-        patchDocument.setValue(patchDocumentValue);
-        patchDocumentValue.setData(bundleUserData);
-        patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
-        return bundleUserPatch;
-    }
-
-    private static BundleUserPatch createReplaceAccountPayload() {
-        BundleUserPatch bundleUserPatch = new BundleUserPatch();
-        List<PatchDocument> patchDocumentList = new ArrayList<PatchDocument>();
-        PatchDocument patchDocument = new PatchDocument();
-        PatchDocumentValue patchDocumentValue = new PatchDocumentValue();
-        BundleUserData bundleUserData = new BundleUserData();
-        UserProduct userProduct = new UserProduct();
-        Account account = new Account();
-        account.setPan("5000000000000000");
-        account.setNameOnCard("XYZ Systems");
-        account.setCardExpiryDate("02/2020");
-        account.setCvcCode("123");
-        List<Account> accounts = new ArrayList<>();
-        accounts.add(account);
-        userProduct.setAccounts(accounts);
-        List<UserProduct> products = new ArrayList<>();
-        products.add(userProduct);
-        bundleUserData.setProducts(products);
-        patchDocument.setOp("replace");
-        patchDocument.setPath("$.data.products[?(@.product=='')].accounts[?(@.pan=='5000000000000001')]");
-        patchDocument.setFrom("string");
-        patchDocument.setValue(patchDocumentValue);
-        patchDocumentValue.setData(bundleUserData);
-        patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
-        return bundleUserPatch;
-    }
 
 
     private static boolean runThisScenario(String[] args, String scenario) {

@@ -138,7 +138,7 @@ This reference app describes the possible operations :
 
 Example:
 
-mastercard.bundle.client.ref.app.url = https://stage.developer.mastercard.com
+mastercard.bundle.client.ref.app.url = https://sandbox.api.mastercard.com
 mastercard.bundle.client.ref.app.consumer.key = Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000
 mastercard.bundle.client.ref.app.keystore.path = C:\path\provided.p12
 mastercard.bundle.client.ref.app.keystore.password = pwd
