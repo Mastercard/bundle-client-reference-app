@@ -124,11 +124,9 @@ This reference app describes the possible operations :
 
 ## Steps to run the application from command line
 
-. Towards Onboarding one to use the the Reference App, gain access to 
-  https://developer.mastercard.com/product/mastercard-on API  by requesting one in 
- (or) need to drop an email to admin.mastercard@mastercard.com to get the 
-  Mastercard ON access with an explanation as to why you are trying to access it 
-
+. Towards onboarding and to be able to use Reference App, please gain access to https://developer.mastercard.com/product/mastercard-on API 
+  by requesting one there (or) need to drop an email to mastercardonadmin@mastercard.com to obtain access to Mastercard ON API along with an explanation as to why you are trying to access it. 
+  
 . Create a new project from Mastercard DevZone - developer.mastercard.com
 
 . Select "MastercardON" from Choose API dropdown and hit continue.
