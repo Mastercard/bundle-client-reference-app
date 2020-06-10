@@ -2,7 +2,7 @@
 
 Description
 
-This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollement.
+This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment.
 
 
 ## Requirements
