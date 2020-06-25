@@ -1,0 +1,13 @@
+{
+  "pan": "5000000000003456",
+  "uuid": "d3459481-fb1c-48bb-8685-40eb629e2ae1",
+  "par": "q1hjz28rka1ebl470g9xyg90r5d3e",
+  "nameOnCard": "SALLY CARDHOLDER",
+  "cardExpiryDate": "02/2024",
+  "cvcCode": "999",
+  "brand": "Mastercard",
+  "productLine": "string",
+  "primary": true,
+  "cardAlias": "d3459481-fb1c-48bb-8685-40eb629e2ae1",
+  "object": {}
+}

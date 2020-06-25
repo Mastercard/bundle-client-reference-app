@@ -1,294 +1,218 @@
 # Bundle Profile Reference Application
 
-Description
+## Table of Contents
+- [Overview](#overview)
+  * [Compatibility](#compatibility)
+  * [References](#references)
+- [Usage](#usage)
+  * [Prerequisites](#prerequisites)
+  * [Configuration](#configuration)
+  * [Integrating with OpenAPI Generator](#integrating-with-openapi-generator)
+  * [Build and Execute](#build-and-execute)
+- [Use Cases](#use-cases)
+- [API Reference](#api-reference)
+  * [Authorization](#authorization)
+  * [Request Examples](#request-examples)
+- [Support](#support)
+- [License](#license)
 
-This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment.
+## Overview <a name="overview"></a>
 
+This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. 
+Please see here for more details on the API:[Mastercard Developers](https://developer.mastercard.com/documentation/bundle-enablement)
 
-## Requirements
+### Compatibility <a name="compatibility"></a>
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
 
-Building the API client library requires:
-1. Java 1.8+
-2. Maven/Gradle
+### References <a name="references"></a>
+* [Mastercard’s OAuth Signer library](https://github.com/Mastercard/oauth1-signer-java)
+* [Using OAuth 1.0a to Access Mastercard APIs](https://developer.mastercard.com/platform/documentation/using-oauth-1a-to-access-mastercard-apis/)
 
-## Installation
+## Usage <a name="usage"></a>
+### Prerequisites <a name="prerequisites"></a>
+* [Mastercard Developers Account](https://developer.mastercard.com/dashboard) with access to "MastercardON" API
+* A text editor or IDE
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
+* [Apache Maven 3.3+](https://maven.apache.org/download.cgi)
+* Set up the `JAVA_HOME` environment variable to match the location of your Java installation.
 
-To install the API client library to your local Maven repository, simply execute:
+### Configuration <a name="configuration"></a>
 
-```shell
-mvn clean install
-```
+* Clone the project - git clone https://github.com/Mastercard/bundle-client-ref.git.
+* Create an account at [Mastercard Developers](https://developer.mastercard.com/account/sign-up).  
+* Create a new project and add `MastercardON` API to your project.   
+* Configure project and download signing key. It will download the zip file.  
+* unzip the downloaded key and Select `.p12` file from zip and copy it to `src/main/resources` in the project folder.
+* Open `${project.basedir}/src/main/resources/application.properties` and configure below parameters.
+      
+     >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
+          
+        **Below properties will be required for authentication of API calls.**
+          
+     >**mastercard.bundle.client.p12.path=**,  <p12 filename> which we downloaded from above steps for eg : bundle-profile-reference.p12
+          
+     >**mastercard.bundle.client.ref.app.consumer.key=**, this refers to your consumer key which we get when create a project under API 
+            
+     >**mastercard.bundle.client.ref.app.keystore.password**, this is the default value of key password. 
 
-To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
+### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
+[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from [OpenAPI Specs](https://github.com/OAI/OpenAPI-Specification). 
+It provides generators and library templates for supporting multiple languages and frameworks.
 
-```shell
-mvn clean deploy
-```
+See also:
+* [OpenAPI Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
+* [OpenAPI Generator (executable)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-cli)
+* [CONFIG OPTIONS for java](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md)
 
-Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) for more information.
+#### OpenAPI Generator Plugin Configuration
 
-### Maven users
-
-Add this dependency to your project's POM:
-
+* maven plugin to build modules from OpenAPI Generator from the given swagger.
 ```xml
-<dependency>
-  <groupId>com.mastercard.developer</groupId>
-  <artifactId>bundle_client</artifactId>
-  <version>1.0.0</version>
-  <scope>compile</scope>
-</dependency>
+<!-- https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin -->
+<plugin>
+    <groupId>org.openapitools</groupId>
+    <artifactId>openapi-generator-maven-plugin</artifactId>
+    <version>${openapi-generator.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <inputSpec>${project.basedir}/src/main/resources/bundle-profile.yaml</inputSpec>
+                <generatorName>java</generatorName>
+                <library>okhttp-gson</library>
+                <generateApiTests>false</generateApiTests>
+                <generateModelTests>false</generateModelTests>
+                <configOptions>
+                    <sourceFolder>src/gen/main/java</sourceFolder>
+                    <dateLibrary>java8</dateLibrary>
+                </configOptions>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 ```
 
-### Gradle users
+#### Generating The API Client Sources
+Now that you have all the dependencies you need, you can generate the sources. To do this, use one of the following two methods:
 
-Add this dependency to your project's build file:
+`Using IDE`
+* **Method 1**<br/>
+  In IntelliJ IDEA, open the Maven window **(View > Tool Windows > Maven)**. Click the icons `Reimport All Maven Projects` and `Generate Sources and Update Folders for All Projects`
 
-```groovy
-compile "com.mastercard.developer:bundle_client:1.0.0"
-```
+* **Method 2**<br/>
 
-### Others
+  In the same menu, navigate to the commands **({Project name} > Lifecycle)**, select `clean` and `compile` then click the icon `Run Maven Build`. 
 
-At first generate the JAR by executing:
+`Using Terminal`
+* Navigate to the root directory of the project within a terminal window and execute `mvn clean compile` command.
 
-```shell
-mvn clean package
-```
+### Build and Execute <a name="build-and-execute"></a>
+Once you’ve added the correct properties, we can build the application. We can do this by navigating to the project’s base directory from the terminal and running the following command
 
-Then manually install the following JARs:
+`mvn clean install`
 
-* `target/bundle_client-1.0.0.jar`
-* `target/lib/*.jar`
+When the project builds successfully you can then run the following command to start the project
 
+`java -jar target/bundle_client-1.0.0.jar` <Argument>
 
-## Documentation for API Endpoints
+Argument: An argument which defines the feature user wants to run through command line. If you don't specify this argument, it will run all the features(createUser,ReadUser,UpdateUser(product,account)) one after the other
 
-All URIs are relative to *https://api.mastercard.com/bundle/profile*
-
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*BundleProfileApi* | [**createUser**](docs/BundleProfileApi.md#createUser) | **POST** /users | Create Profile
-*BundleProfileApi* | [**patchUser**](docs/BundleProfileApi.md#patchUser) | **POST** /users/{user_id}/patch | Partially Update Profile
-*BundleProfileApi* | [**readUser**](docs/BundleProfileApi.md#readUser) | **GET** /users/{user_id} | Find User by Id
-
-
-## Documentation for Models
-
-- [Account](docs/Account.md)
-- [Address](docs/Address.md)
-- [BundleUser](docs/BundleUser.md)
-- [BundleUserData](docs/BundleUserData.md)
-- [BundleUserPatch](docs/BundleUserPatch.md)
-- [BundleUserResponse](docs/BundleUserResponse.md)
-- [BundleUserResponseData](docs/BundleUserResponseData.md)
-- [BundleUserResponseErrors](docs/BundleUserResponseErrors.md)
-- [Consent](docs/Consent.md)
-- [Email](docs/Email.md)
-- [Error](docs/Error.md)
-- [Errors](docs/Errors.md)
-- [Identification](docs/Identification.md)
-- [Im](docs/Im.md)
-- [Name](docs/Name.md)
-- [PatchDocument](docs/PatchDocument.md)
-- [PatchDocumentValue](docs/PatchDocumentValue.md)
-- [PhoneNumber](docs/PhoneNumber.md)
-- [Photo](docs/Photo.md)
-- [User](docs/User.md)
-- [UserProduct](docs/UserProduct.md)
-- [UserProductResponse](docs/UserProductResponse.md)
-- [UserReadAccountResponse](docs/UserReadAccountResponse.md)
-
-
-## Documentation for Authorization
-
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
-
-## Recommendation
-
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
-
-## Use Case
-
-This reference app describes the possible operations :
-
-1) This will Enroll user for all the products Wifi,Reward,Airport,Offers,Benefits,Specialpay
-2) This will Retrieve user enrolled for the products  Wifi,Reward,Airport,Offers,Benefits,Specialpay
-3) This will be able to add product (Wifi,Reward,Airport,Offers,Benefits,Specialpay) to the user enrolled
-4) This will be able to add account to the user enrolled
-5) This will be able to remove account already attached to a enrolled user
-6) This will be able to revise/replace account for a user
-7) This will be able to update the user details.
-
-
-## Steps to run the application from command line
-
-. Towards onboarding and to be able to use Reference App, please gain access to https://developer.mastercard.com/product/mastercard-on API 
-  by requesting one there (or) need to drop an email to mastercardonadmin@mastercard.com to obtain access to Mastercard ON API along with an explanation as to why you are trying to access it. 
-  
-. Create a new project from Mastercard DevZone - developer.mastercard.com
-
-. Select "MastercardON" from Choose API dropdown and hit continue.
-
-. Get Sandbox keys and store your .p12 certificate along with the readme/documentation. Place the .p12 file in the src/main/resources folder.
-
-. Please save this Sandbox Keys, .p12, key store password and alias as you are going to use these to run the application.
-
-. Clone this repository and set up as Maven project
-
-. Update the following keys in application.properties file
-
-Example:
-
-mastercard.bundle.client.ref.app.url = https://sandbox.api.mastercard.com
-mastercard.bundle.client.ref.app.consumer.key = Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000
-mastercard.bundle.client.ref.app.keystore.path = C:\path\provided.p12
-mastercard.bundle.client.ref.app.keystore.password = pwd
-
-.Do a clean build either through IDE or command prompt, if you are doing it through command prompt then the below command should be executed in the directory which contains this repository's pom file Eg: mvn clean install
-
-. Run the application using below command
-   Eg: java -jar path of the Jar relative to the current directory/bundle_client-1.0.0.jar <argument>
-   
-   Argument: An argument which defines the feature user wants to run through command line. If you don't specify this argument, it will run all the features(createUser,ReadUser,UpdateUser(product,account)               ) one after the other
-   
    . createUser - Enroll User for all the products
    . readUser   - Get User enrolled for the products 
    . addProduct - add product to the enrolled user.
    . addAccount - add account to the enrolled user.
    . removeAccount - remove Account for a given user.
    . replaceAccount - replaceAccount for a given user
-   . replaceUser - update the user detils.
-
-## User identifiers supported for different products 
-
-GET operation
-
-1.	user234 for Products: airport, wifi
-2.	user1235 for Products: rewards, benefits, offers
-3.	specialpayUser for Product: specialpay 
-
-POST operation
-
-    Any user identifier acceptable across products 
-
-. How to refer different product-wise operations
-
-To refer POST operation only for a particular product in place of all products, one needs to edit the post-user-payloads = post-user-wifi.json (only the product/s he wants separated by ,)
-To refer PATCH-ADD operation only for a particular product in place of all products, one needs to edit the patch-add-product-payloads=patch-add-product-wifi (only the product/s he wants separated by ,)
-
-
-## API Expected sample Response 
-
-STARTING GET USER FOR BUNDLE PROFILE
-
-Expected response
-
-```json
-{
-	"data": {
-		"user": {
-			"userId": "specialpayUser"
-		},
-		"products": [{
-			"product": "specialpay"
-		}]
-	}
-}
-```
-
-STARTING CREATE USER FOR BUNDLE PROFILE
-
-Expected response for wifi
-
-```json
-{
-	"data": {
-		"user": {
-			"userId": "user234"
-		},
-		"products": [{
-			"product": "wifi"
-		}]
-	}
-}
-```
-Expected response for benefits
-
-```json
-{
-	"data": {
-		"user": {
-			"userId": "user1235"
-		},
-		"products": [{
-			"product": "benefits"
-		}]
-	}
-}
-```
-
-
-
-STARTING ADD PRODUCT FOR BUNDLE PROFILE
-
-Expected response for offers
-
-```json
-{
-	"data": {
-		"user": {},
-		"products": [{
-			"product": "offers"
-		}]
-	}
-}
-```
-
-
-STARTING ADD/REMOVE/REPLACE ACCOUNT FOR BUNDLE PROFILE
-
-Expected response
-
-```json
-{
-   	"data": {
-   		"user": {
-   			"userId": "specialpayUser"
-   		}
-   	}
-}
-```
+   . replaceUser - update the user details.
    
-STARTING REPLACE USER FOR BUNDLE PROFILE
+## Use Cases <a name="use-cases"></a>
 
-Expected response
+> Case 1: [CREATE USER FOR BUNDLE PROFILE](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
 
-```json
-{
-   "data":{
-      "user":{
-         "userId":"specialpayUser"
-      }
-   }
-}
-```
-
+  - This endpoint provides the capability to enroll user into Product(s) based on the product name passed in the request .
+  - Refer to model classes for field level information.
   
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users` | POST | [BundleUser](docs/BundleUser.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    
+> Case 2: [GET PRODUCT ENROLLED FOR USER](https://developer.mastercard.com/documentation/bundle-enablement#get-products-enrolled-for-user)
 
-## Author
+  - The Bundle Profile API allows the retrieve the Product(s) that the user is enrolled.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}` | GET | NA | NA |
+    
 
-    Digital_Enablement_Team_3@mastercard.com
+> Case 3: [ADD PRODUCT FOR ENROLLED USER](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
 
-## Support
-
-   Please email to Digital_Enablement_Team_3@mastercard.com for additional support if required.
-
-## License
-   Apache 2 License
-
-Copyright © 1994-2020, All Right Reserved by Mastercard.
+  - The Bundle Profile API allows to add Product(s) enrollment for user.
+  - Refer to model classes for field level information.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 
+> Case 4: [ADD USER ACCOUNT FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account)
 
+  - The Bundle Profile API allows to add user account to the Product(s).
+  - Refer to model classes for field level information.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    
+> Case 5: [REMOVE USER ACCOUNT FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account)
+
+  - The Bundle Profile API allows to remove the product enrollment(s) attached to a user PAN account.
+  - Refer to model classes for field level information.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+
+> Case 6: [REPLACE USER ACCOUNT FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-replace-account)
+
+  - The Bundle Profile API allows to replace user PAN Account across Product(s) that are enrolled with PAN tagged to it.
+  - Refer to model classes for field level information.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+
+> Case 5: [REPLACE USER FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-replace-account)
+
+  - The Bundle Profile API allows to replace user PAN Account across Product(s) that are enrolled with PAN tagged to it.
+  - Refer to model classes for field level information.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    
+    
+### Authorization <a name="authorization"></a>
+The `com.mastercard.developer.interceptors` package will provide you with some request interceptor classes you can use when configuring your API client. These classes will take care of adding the correct `Authorization` header before sending the request.
+
+### Request Examples <a name="request-examples"></a>
+You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Usecase.
+You can change the userId value pass in endpoint in RequestHelper.java USER_ID field.
+Below are the static user id value configured for the Bundle Profile Reference Application 
+ * user234 for Products: airport, wifi
+ * user1235 for Products: rewards, benefits, offers
+ * specialpayUser for Product: specialpay 
+
+## Support <a name="support"></a>
+If you would like further information, please send an email to Digital_Enablement_Team_3@mastercard.com
+
+## License <a name="license"></a>
+Copyright 2020 Mastercard
+ 
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ 
+       http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
