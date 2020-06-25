@@ -24,13 +24,15 @@ public class BundleProfileApiDemo {
         BundleProfileApi bundleProfileApi = new BundleProfileApi(RequestHelper.signRequest());
 
 
-        if (runThisScenario(args, "readUser")) {
-            printMessage("STARTING GET USER FOR BUNDLE PROFILE");
-            executeGetBundleUserScenario(bundleProfileApi);
-        }
+
         if (runThisScenario(args, "createUser")) {
             printMessage("STARTING CREATE USER FOR BUNDLE PROFILE");
             executeCreateBundleUserScenario(bundleProfileApi);
+        }
+
+        if (runThisScenario(args, "readUser")) {
+            printMessage("STARTING GET USER FOR BUNDLE PROFILE");
+            executeGetBundleUserScenario(bundleProfileApi);
         }
 
         if (runThisScenario(args, "addProduct")) {
