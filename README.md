@@ -14,7 +14,6 @@
   * [Authorization](#authorization)
   * [Request Examples](#request-examples)
 - [Support](#support)
-- [License](#license)
 
 ## Overview <a name="overview"></a>
 
@@ -119,13 +118,13 @@ When the project builds successfully you can then run the following command to s
 
 Argument: An argument which defines the feature user wants to run through command line. If you don't specify this argument, it will run all the features(createUser,ReadUser,UpdateUser(product,account)) one after the other
 
-   . createUser - Enroll User for all the products
-   . readUser   - Get User enrolled for the products 
-   . addProduct - add product to the enrolled user.
-   . addAccount - add account to the enrolled user.
-   . removeAccount - remove Account for a given user.
-   . replaceAccount - replaceAccount for a given user
-   . replaceUser - update the user details.
+    * createUser - Enroll User for all the products
+    * readUser   - Get User enrolled for the products 
+    * addProduct - add product to the enrolled user.
+    * addAccount - add account to the enrolled user.
+    * removeAccount - remove Account for a given user.
+    * replaceAccount - replaceAccount for a given user
+    * replaceUser - update the user details.
    
 ## Use Cases <a name="use-cases"></a>
 
@@ -208,11 +207,3 @@ Below are the static user id value configured for the Bundle Profile Reference A
 ## Support <a name="support"></a>
 If you would like further information, please send an email to Digital_Enablement_Team_3@mastercard.com
 
-## License <a name="license"></a>
-Copyright 2020 Mastercard
- 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
- 
-       http://www.apache.org/licenses/LICENSE-2.0
- 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
