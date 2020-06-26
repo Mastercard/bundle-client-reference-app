@@ -112,11 +112,11 @@ Once you’ve added the correct properties, we can build the application. We can
 
 `mvn clean install`
 
-When the project builds successfully you can then run the following command to start the project
+When the project builds successfully, you can then run the following command to start the project
 
 `java -jar target/bundle_client-1.0.0.jar` <Argument>
 
-Argument: An argument which defines the feature user wants to run through command line. If you don't specify this argument, it will run all the features(createUser,ReadUser,UpdateUser(product,account)) one after the other
+Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product, account)) one after the other.
 
     * createUser - Enroll User for all the products
     * readUser   - Get User enrolled for the products 
@@ -205,5 +205,5 @@ Below are the static user id value configured for the Bundle Profile Reference A
  * specialpayUser for Product: specialpay 
 
 ## Support <a name="support"></a>
-If you would like further information, please send an email to Digital_Enablement_Team_3@mastercard.com
+For any clarifications, please reach out Digital_Enablement_Team_3@mastercard.com
 
