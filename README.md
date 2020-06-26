@@ -7,7 +7,7 @@
 - [Usage](#usage)
   * [Prerequisites](#prerequisites)
   * [Configuration](#configuration)
-  * [Integrating with OpenAPI Generator](#integrating-with-openapi-generator)
+  * [Integrating with Open API Generator](#integrating-with-openapi-generator)
   * [Build and Execute](#build-and-execute)
 - [Use Cases](#use-cases)
 - [API Reference](#api-reference)
@@ -18,7 +18,7 @@
 ## Overview <a name="overview"></a>
 
 This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. 
-Please see here for more details on the API:[Mastercard Developers](https://developer.mastercard.com/documentation/bundle-enablement)
+Please see here for more details on the API:[Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
 
 ### Compatibility <a name="compatibility"></a>
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
@@ -39,16 +39,16 @@ Please see here for more details on the API:[Mastercard Developers](https://deve
 
 * Clone the project - git clone https://github.com/Mastercard/bundle-client-ref.git.
 * Create an account at [Mastercard Developers](https://developer.mastercard.com/account/sign-up).  
-* Create a new project and add `MastercardON` API to your project.   
+* Create new project and add MastercardON API to your project.  
 * Configure project and download signing key. It will download the zip file.  
-* unzip the downloaded key and Select `.p12` file from zip and copy it to `src/main/resources` in the project folder.
+* Unzip the downloaded key and Select .p12 file from zip and copy it to src/main/resources in the project folder.
 * Open `${project.basedir}/src/main/resources/application.properties` and configure below parameters.
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
           
-        **Below properties will be required for authentication of API calls.**
+        **Authentication of API calls needs the below properties.**
           
-     >**mastercard.bundle.client.p12.path=**,  <p12 filename> which we downloaded from above steps for eg : bundle-profile-reference.p12
+     >**mastercard.bundle.client.p12.path=**,  <p12 filename>  which we downloaded from the above steps for example: bundle-profile-reference.p12
           
      >**mastercard.bundle.client.ref.app.consumer.key=**, this refers to your consumer key which we get when create a project under API 
             
