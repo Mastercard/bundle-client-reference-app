@@ -55,7 +55,7 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
      >**mastercard.bundle.client.ref.app.keystore.password=** this is the default value of key password. 
 
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
-[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from [OpenAPI Specs](https://github.com/OAI/OpenAPI-Specification). 
+[Open API Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from the [Open API Specs](https://github.com/OAI/OpenAPI-Specification). 
 It provides generators and library templates for supporting multiple languages and frameworks.
 
 See also:
@@ -116,21 +116,21 @@ When the project builds successfully, you can then run the following command to 
 
 `java -jar target/bundle_client-1.0.0.jar` <Argument>
 
-Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product, account)) one after the other.
+Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product / account)) one after the other.
 
     * createUser - Enroll User for all the products
     * readUser   - Get User enrolled for the products 
     * addProduct - add product to the enrolled user.
     * addAccount - add account to the enrolled user.
-    * removeAccount - remove Account for a given user.
-    * replaceAccount - replaceAccount for a given user
-    * replaceUser - update the user details.
+    * removeAccount - remove Account for a user.
+    * replaceAccount - replaceAccount for a user
+    * replaceUser - update profile for a user.
    
 ## Use Cases <a name="use-cases"></a>
 
 > Case 1: [CREATE USER FOR BUNDLE PROFILE](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
 
-  - This endpoint provides the capability to enroll user into Product(s) based on the product name passed in the request .
+  - This endpoint provides the capability to enroll user into Product (s) based on the product name passed in the request
   - Refer to model classes for field level information.
   
     | URL | Method | Request | Response |
@@ -139,16 +139,16 @@ Argument: An argument which defines the feature user wants to run through the co
     
 > Case 2: [GET PRODUCT ENROLLED FOR USER](https://developer.mastercard.com/documentation/bundle-enablement#get-products-enrolled-for-user)
 
-  - The Bundle Profile API allows the retrieve the Product(s) that the user is enrolled.
+  - The Bundle Profile API allows the retrieval of the Product (s) for a user enrolled.
   
-    | URL | Method | Request | Response |
+    | URL | Method | Request | Response |The Bundle Profile API allows the retrieval of the Product (s) for a user enrolled.
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}` | GET | NA | NA |
     
 
 > Case 3: [ADD PRODUCT FOR ENROLLED USER](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
 
-  - The Bundle Profile API allows to add Product(s) enrollment for user.
+  - The Bundle Profile API allows to add a user account to the Product (s).
   - Refer to model classes for field level information.
   
     | URL | Method | Request | Response |
@@ -167,7 +167,7 @@ Argument: An argument which defines the feature user wants to run through the co
     
 > Case 5: [REMOVE USER ACCOUNT FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account)
 
-  - The Bundle Profile API allows to remove the product enrollment(s) attached to a user PAN account.
+  - The Bundle Profile API allows to remove the product enrollment (s) attached to a user PAN account.
   - Refer to model classes for field level information.
   
     | URL | Method | Request | Response |
@@ -176,7 +176,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
 > Case 6: [REPLACE USER ACCOUNT FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-replace-account)
 
-  - The Bundle Profile API allows to replace user PAN Account across Product(s) that are enrolled with PAN tagged to it.
+  - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
   - Refer to model classes for field level information.
   
     | URL | Method | Request | Response |
@@ -185,7 +185,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
 > Case 5: [REPLACE USER FOR ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-replace-account)
 
-  - The Bundle Profile API allows to replace user PAN Account across Product(s) that are enrolled with PAN tagged to it.
+  - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
   - Refer to model classes for field level information.
   
     | URL | Method | Request | Response |
@@ -198,8 +198,8 @@ The `com.mastercard.developer.interceptors` package will provide you with some r
 
 ### Request Examples <a name="request-examples"></a>
 You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Usecase.
-You can change the userId value pass in endpoint in RequestHelper.java USER_ID field.
-Below are the static user id value configured for the Bundle Profile Reference Application 
+{userid} field is editable in the RequestHelper.java class.
+Below are the static user id values configured for the Bundle Profile Reference Application.
  * user234 for Products: airport, wifi
  * user1235 for Products: rewards, benefits, offers
  * specialpayUser for Product: specialpay 
