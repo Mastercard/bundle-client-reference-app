@@ -48,11 +48,11 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
           
         **Authentication of API calls needs the below properties.**
           
-     >**mastercard.bundle.client.p12.path=**,  <p12 filename>  which we downloaded from the above steps for example: bundle-profile-reference.p12
+     >**mastercard.bundle.client.p12.path=**  <p12 filename>  which we downloaded from the above steps for example: bundle-profile-reference.p12
           
-     >**mastercard.bundle.client.ref.app.consumer.key=**, this refers to your consumer key which we get when create a project under API 
+     >**mastercard.bundle.client.ref.app.consumer.key=** this refers to your consumer key which we get when create a project under API 
             
-     >**mastercard.bundle.client.ref.app.keystore.password**, this is the default value of key password. 
+     >**mastercard.bundle.client.ref.app.keystore.password=** this is the default value of key password. 
 
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
 [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from [OpenAPI Specs](https://github.com/OAI/OpenAPI-Specification). 
