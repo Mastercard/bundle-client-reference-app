@@ -59,13 +59,13 @@ Please see here for more details on the API:[Mastercard Developers](https://deve
 It provides generators and library templates for supporting multiple languages and frameworks.
 
 See also:
-* [OpenAPI Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
-* [OpenAPI Generator (executable)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-cli)
+* [Open API Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
+* [Open API Generator (executable)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-cli)
 * [CONFIG OPTIONS for java](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md)
 
 #### OpenAPI Generator Plugin Configuration
 
-* maven plugin to build modules from OpenAPI Generator from the given swagger.
+* maven plugin to build modules from Open API - Generator from the swagger given.
 ```xml
 <!-- https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin -->
 <plugin>
@@ -98,7 +98,7 @@ Now that you have all the dependencies you need, you can generate the sources. T
 
 `Using IDE`
 * **Method 1**<br/>
-  In IntelliJ IDEA, open the Maven window **(View > Tool Windows > Maven)**. Click the icons `Reimport All Maven Projects` and `Generate Sources and Update Folders for All Projects`
+  In IntelliJ IDEA, open the Maven window (View > Tool Windows > Maven). Click the icons: Re-import All Maven Projects and Generate Sources and Update Folders for All Projects.`
 
 * **Method 2**<br/>
 
@@ -108,7 +108,7 @@ Now that you have all the dependencies you need, you can generate the sources. T
 * Navigate to the root directory of the project within a terminal window and execute `mvn clean compile` command.
 
 ### Build and Execute <a name="build-and-execute"></a>
-Once you’ve added the correct properties, we can build the application. We can do this by navigating to the project’s base directory from the terminal and running the following command
+Once you’ve added the correct properties, we can build the application. We can do this by navigating to the project’s base directory from the terminal and running the following command.
 
 `mvn clean install`
 
