@@ -202,8 +202,8 @@ You can change the default input passed to APIs, modify values in the src/main/r
 Below are the static user id values configured for the Bundle Profile Reference Application.
  * user234 for Products: airport, wifi
  * user1235 for Products: rewards, benefits, offers
- * specialpayUser for Product: specialpay 
+ * specialpayUser for Product: special pay
 
 ## Support <a name="support"></a>
-For any clarifications, please reach out Digital_Enablement_Team_3@mastercard.com
+For any clarifications, please reach out to Digital_Enablement_Team_3@mastercard.com.
 
