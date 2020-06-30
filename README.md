@@ -41,7 +41,7 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
 * Create an account at [Mastercard Developers](https://developer.mastercard.com/account/sign-up).  
 * Create new project and add MastercardON API to your project.  
 * Configure project and download signing key. It will download the zip file.  
-* Unzip the downloaded key and Select .p12 file from zip and copy it to src/main/resources in the project folder.
+* unzip the downloaded key and select .p12 file from zip and copy it to src/main/resources in the project folder.
 * Open `${project.basedir}/src/main/resources/application.properties` and configure below parameters.
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
@@ -169,7 +169,7 @@ Argument: An argument which defines the feature user wants to run through the co
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
-> Case 5: [UPDATE USER INFORMATION ACROSS PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user)
+> Case 7: [UPDATE USER INFORMATION ACROSS PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user)
 
   - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
   - Refer to model classes for field level information.
