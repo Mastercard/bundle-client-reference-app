@@ -46,7 +46,7 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
           
-        **Authentication of API calls needs the below properties.**
+     #### Authentication of API calls needs the below properties.
           
      >**mastercard.bundle.client.p12.path=**  <p12 filename>  which we downloaded from the above steps for example: bundle-profile-reference.p12
           
