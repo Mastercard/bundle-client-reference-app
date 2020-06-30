@@ -180,7 +180,7 @@ Argument: An argument which defines the feature user wants to run through the co
     
     
 ### Authorization <a name="authorization"></a>
-The `com.mastercard.developer.interceptors` package will provide you with some request interceptor classes you can use when configuring your API client. These classes will take care of adding the correct `Authorization` header before sending the request.
+The `com.mastercard.developer.interceptors` package will provide you with some request interceptor classes you can use when configuring your API client. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
 
 ### Request Examples <a name="request-examples"></a>
 You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Usecase.
