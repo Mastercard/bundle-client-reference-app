@@ -107,7 +107,7 @@ Argument: An argument which defines the feature user wants to run through the co
     * readUser   - Retrieve user’s enrolled product (s) .
     * addProduct - Add product (s) enrolment for user.
     * addAccount - Add a user account to the product (s) .
-    * removeAccount - Remove product enrollment (s) from a user’s account.
+    * removeAccount - Remove user's account tagged on an enrolled product
     * replaceAccount - Replace user's primary account number for all products tied to the existing primary account number.
     * replaceUser - Update user information across product (s).
    
