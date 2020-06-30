@@ -60,7 +60,6 @@ It provides generators and library templates for supporting multiple languages a
 
 See also:
 * [Open API Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
-* [Open API Generator (executable)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-cli)
 * [CONFIG OPTIONS for java](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md)
 
 #### OpenAPI Generator Plugin Configuration
@@ -92,20 +91,6 @@ See also:
     </executions>
 </plugin>
 ```
-
-#### Generating The API Client Sources
-Now that you have all the dependencies you need, you can generate the sources. To do this, use one of the following two methods:
-
-`Using IDE`
-* **Method 1**<br/>
-  In IntelliJ IDEA, open the Maven window (View > Tool Windows > Maven). Click the icons: Re-import All Maven Projects and Generate Sources and Update Folders for All Projects.`
-
-* **Method 2**<br/>
-
-  In the same menu, navigate to the commands **({Project name} > Lifecycle)**, select `clean` and `compile` then click the icon `Run Maven Build`. 
-
-`Using Terminal`
-* Navigate to the root directory of the project within a terminal window and execute `mvn clean compile` command.
 
 ### Build and Execute <a name="build-and-execute"></a>
 Once you’ve added the correct properties, we can build the application. We can do this by navigating to the project’s base directory from the terminal and running the following command.
