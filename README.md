@@ -162,7 +162,7 @@ Argument: An argument which defines the feature user wants to run through the co
 > Case 6: [REPLACE USER'S PAN FOR ALL PRODUCTS TIED TO THE EXISTING PAN](https://developer.mastercard.com/documentation/bundleenablement#patch-replace-account)
 
   - PAN STAND FOR PRIMARY ACCOUNT NUMBER
-  - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
+  - The Bundle Profile API allows to replace user PAN Account with the given new PAN Account on a enrolled product for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -171,7 +171,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
 > Case 7: [UPDATE USER INFORMATION ACROSS PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user)
 
-  - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
+  - The Bundle Profile API allows to update user personal information for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
