@@ -107,7 +107,7 @@ Argument: An argument which defines the feature user wants to run through the co
     * readUser   - Retrieve user’s enrolled product (s) .
     * addProduct - Add product (s) enrolment for user.
     * addAccount - Add a user account to the product (s) .
-    * removeAccount - Remove user's account tagged on an enrolled product
+    * removeAccount - Remove user's account tagged on an enrolled product .
     * replaceAccount - Replace user's primary account number for all products tied to the existing primary account number.
     * replaceUser - Update user information across product (s).
    
@@ -115,7 +115,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
 > Case 1: [USER ENROLMENT INTO PRODUCT(S) ](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
 
-  - This endpoint provides the capability to enrol user into Product (s) based on the product name passed in the request
+  - The Bundle Profile API allows you to enroll a user into product (s) based on the product (s) name passed in the request
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -124,7 +124,7 @@ Argument: An argument which defines the feature user wants to run through the co
     
 > Case 2: [RETRIEVE USER'S ENROLLED PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#get-products-enrolled-for-user)
 
-  - The Bundle Profile API allows the retrieval of the Product (s) for a user enrolled.
+  - The Bundle Profile API allows you to retrieve the product (s) details for a specific user passed in the request.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
@@ -133,7 +133,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
 > Case 3: [ADD PRODUCT(S) ENROLMENT FOR USER ](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
 
-  - The Bundle Profile API allows to add a user account to the Product (s).
+  - The Bundle Profile API allows to add Product (s) for a specific user passsed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -143,16 +143,16 @@ Argument: An argument which defines the feature user wants to run through the co
 
 > Case 4: [ADD A USER ACCOUNT TO THE PRODUCT(S) .](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account)
 
-  - The Bundle Profile API allows to add user account to the Product(s).
+  - The Bundle Profile API allows to add user account to the Product(s) for a specific user passed in the API Endpoint .
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 5: [REMOVE PRODUCT ENROLMENT(S) FROM A USER'S ACCOUNT](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account)
+> Case 5: [REMOVE USER'S ACCOUNT TAGGED ON AN ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account)
 
-  - The Bundle Profile API allows to remove the product enrollment (s) attached to a user PAN account.
+  - The Bundle Profile API allows to remove the account tagged on a enrolled product for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
