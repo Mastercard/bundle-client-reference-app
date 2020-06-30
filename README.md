@@ -41,7 +41,7 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
 * Create an account at [Mastercard Developers](https://developer.mastercard.com/account/sign-up).  
 * Create new project and add MastercardON API to your project.  
 * Configure project and download signing key. It will download the zip file.  
-* unzip the downloaded key and select .p12 file from zip and copy it to src/main/resources in the project folder.
+* Unzip the downloaded key and select .p12 file from zip and copy it to src/main/resources in the project folder.
 * Open `${project.basedir}/src/main/resources/application.properties` and configure below parameters.
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
@@ -116,7 +116,7 @@ Argument: An argument which defines the feature user wants to run through the co
 > Case 1: [USER ENROLMENT INTO PRODUCT(S) ](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
 
   - This endpoint provides the capability to enrol user into Product (s) based on the product name passed in the request
-  - Refer to model classes for field level information.
+  - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
@@ -134,7 +134,7 @@ Argument: An argument which defines the feature user wants to run through the co
 > Case 3: [ADD PRODUCT(S) ENROLMENT FOR USER ](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
 
   - The Bundle Profile API allows to add a user account to the Product (s).
-  - Refer to model classes for field level information.
+  - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
@@ -144,7 +144,7 @@ Argument: An argument which defines the feature user wants to run through the co
 > Case 4: [ADD A USER ACCOUNT TO THE PRODUCT(S) .](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account)
 
   - The Bundle Profile API allows to add user account to the Product(s).
-  - Refer to model classes for field level information.
+  - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
@@ -153,7 +153,7 @@ Argument: An argument which defines the feature user wants to run through the co
 > Case 5: [REMOVE PRODUCT ENROLMENT(S) FROM A USER'S ACCOUNT](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account)
 
   - The Bundle Profile API allows to remove the product enrollment (s) attached to a user PAN account.
-  - Refer to model classes for field level information.
+  - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
@@ -163,7 +163,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
   - PAN STAND FOR PRIMARY ACCOUNT NUMBER
   - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
-  - Refer to model classes for field level information.
+  - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
@@ -172,7 +172,7 @@ Argument: An argument which defines the feature user wants to run through the co
 > Case 7: [UPDATE USER INFORMATION ACROSS PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user)
 
   - The Bundle Profile API allows to replace user PAN Account across Product (s) that have PAN enrolled and tagged to it.
-  - Refer to model classes for field level information.
+  - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
