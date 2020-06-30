@@ -126,7 +126,7 @@ Argument: An argument which defines the feature user wants to run through the co
 
   - The Bundle Profile API allows the retrieval of the Product (s) for a user enrolled.
   
-    | URL | Method | Request | Response |The Bundle Profile API allows the retrieval of the Product (s) for a user enrolled.
+    | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}` | GET | NA | NA |
     
