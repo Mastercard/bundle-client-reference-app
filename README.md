@@ -19,7 +19,7 @@
 Bundle Profile is a product enrollment service that provides the ability for user enrollment into Mastercard solutions. 
 Bundle Profile enables the following actions:
  * Create a new enrollment into products
- * View enrolment information
+ * View enrollment information
  * Update the consumer and product enrollment information
  
  This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. 
@@ -105,13 +105,13 @@ When the project builds successfully, you can run the following command to start
 
 Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product / account)) one after the other. createUser, readUser, etc mentioned below are the arguments.
 
-    * createUser - User enrolment into product (s) .
-    * readUser   - Retrieve user’s enrolled product (s) .
-    * addProduct - Add product (s) enrolment for user.
-    * addAccount - Add a user account to the product (s) .
-    * removeAccount - Remove user's account tagged on an enrolled product .
+    * createUser - User enrollment into products .
+    * readUser   - Retrieve user’s enrolled products .
+    * addProduct - Add products for a user.
+    * addAccount - Add a user account to the products .
+    * removeAccount - Remove user's account tagged on enrolled product.
     * replaceAccount - Replace user's primary account number for all products tied to the existing primary account number.
-    * replaceUser - Update user information across product (s).
+    * replaceUser - Update the user information across products.
    
 ## Use Cases <a name="use-cases"></a>
 
@@ -131,36 +131,36 @@ Argument: An argument which defines the feature user wants to run through the co
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}` | GET | NA | NA |
     
-> Case 3: [PATCH Add User Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account) to add user account to the products 
+> Case 3: [PATCH Add User Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account) to add user account to the products.
 
-  - The Bundle Profile API allows to add user account to the Product(s) for a specific user passed in the API Endpoint .
+  - The Bundle Profile API allows to add user account to the products enrolled for a specific user passed in the API Endpoint. .
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
- > Case 4: [PATCH Add Product](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product) to add products for a user 
+ > Case 4: [PATCH Add Product](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product) to add products for a user.
 
-  - The Bundle Profile API allows to add Product (s) for a specific user passed in the API Endpoint.
+  - The Bundle Profile API allows to add Products for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 5: [PATCH Remove Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account) to remove user’s account tagged on an enrolled product 
+> Case 5: [PATCH Remove Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account) to remove user’s account tagged on an enrolled product.
 
-  - The Bundle Profile API allows to remove the account tagged on a enrolled product for a specific user passed in the API Endpoint.
+  - The Bundle Profile API allows to remove the account tagged on an enrolled product for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
-> Case 6: [PATCH Replace Account](https://developer.mastercard.com/documentation/bundleenablement#patch-replace-account) to Replace User’s account number for all products tied             to the existing payment card account number 
+> Case 6: [PATCH Replace Account](https://developer.mastercard.com/documentation/bundleenablement#patch-replace-account) to Replace User’s account number for all products tied             to the existing payment card account number.
 
-  - The Bundle Profile API allows to replace user PAN Account with the given new PAN Account on a enrolled product for a specific user passed in the API Endpoint.
+  - The Bundle Profile API allows to replace user PAN Account with the given new PAN Account on an enrolled product for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -178,11 +178,10 @@ Argument: An argument which defines the feature user wants to run through the co
     
     
 ### Authorization <a name="authorization"></a>
-The `com.mastercard.developer.interceptors` package will provide you with some request interceptor classes you can use when configuring your API client. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
+The `com.mastercard.developer.interceptors` package will provide some request interceptor classes to use for configuring your API client. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
 
 ### Request Examples <a name="request-examples"></a>
-You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Use case. 
-{userid} field is editable in the RequestHelper.java class. Below are the static User ID values configured for the Bundle Profile Reference Application. You may pass the below User IDs for GET operation to retrieve information on user’s enrolled products. 
+You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Use case. {userid} field is editable in the RequestHelper.java class. Below are the static User ID values configured for the Bundle Profile Reference Application. You may pass the below User IDs for GET operation to retrieve information on user’s enrolled products.
 
 * For Products (airport, Wi-Fi), User ID - user234 is supported
 * For Products (rewards, benefits, offers), User ID - user1235 is supported
