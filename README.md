@@ -47,7 +47,7 @@ Please visit Mastercard Developer website for more details about the API :[Maste
           
      >**mastercard.bundle.client.p12.path=BundleProfile.p12**,this refers to the p12 file name which we obtained from above steps.
           
-     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000** this refers to your consumer key which we         get when create a project under API 
+     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000**,this refers to your consumer key which we         get when create a project under API 
             
      >**mastercard.bundle.client.ref.app.keystore.password=pwd** this refers to the pwd which we obtained while creating the p12 key.
      
