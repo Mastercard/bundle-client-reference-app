@@ -16,9 +16,14 @@
 - [Support](#support)
 
 ## Overview <a name="overview"></a>
-
-This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. 
-Please visit Mastercard Developer website for more details about the API :[Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
+Bundle Profile is a product enrollment service that provides the ability for user enrollment into Mastercard solutions. 
+Bundle Profile enables the following actions:
+ * Create a new enrollment into products
+ * View enrolment information
+ * Update the consumer and product enrollment information
+ 
+ This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. Please visit Mastercard Developer portal for more details about the API:  
+ [Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
 
 ### Compatibility <a name="compatibility"></a>
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
