@@ -96,7 +96,8 @@ Once you’ve added the correct properties, we can build the application. We can
 
 When the project builds successfully, you can then run the following command to start the project
 
-`java -jar target/bundle_client-1.0.0.jar` <Argument>
+`java -jar target/bundle_client-1.0.0.jar <argument as below>`
+ Example : `java -jar target/bundle_client-1.0.0.jar createUser`
 
 Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product / account)) one after the other.
 
