@@ -22,8 +22,8 @@ Bundle Profile enables the following actions:
  * View enrolment information
  * Update the consumer and product enrollment information
  
- This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. Please visit Mastercard Developer portal for more details about the API:  
- [Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
+ This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. 
+ Please visit Mastercard Developer portal for more details about the API:[Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
 
 ### Compatibility <a name="compatibility"></a>
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
@@ -50,15 +50,14 @@ Bundle Profile enables the following actions:
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
           
-     >**mastercard.bundle.client.p12.path=BundleProfile.p12**,this refers to the p12 file name which we obtained from above steps.
+     >**mastercard.bundle.client.p12.path=BundleProfile.p12**,this refers to the p12 file name obtained from aforementioned steps.
           
-     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000**,this refers to your consumer key which we         get when create a project from the developer zone in above steps.
+     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000**,this refers to your consumer key you get         when you create a project under API.
             
-     >**mastercard.bundle.client.ref.app.keystore.password=pwd** this refers to the pwd which we obtained while creating the p12 key.
+     >**mastercard.bundle.client.ref.app.keystore.password=pwd** this refers to the password you obtain when you create the p12 key.
      
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
-[Open API Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from the [Open API Specs](https://github.com/OAI/OpenAPI-Specification). 
-It provides generators and library templates for supporting multiple languages and frameworks.
+Reference app uses [Open API Generator](https://github.com/OpenAPITools/openapi-generator) that generates API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks.
 
 See also:
 * [Open API Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
@@ -95,16 +94,16 @@ See also:
 ```
 
 ### Build and Execute <a name="build-and-execute"></a>
-Once you’ve added the correct properties, we can build the application. We can do this by navigating to the project’s base directory from the terminal and running the following command.
+Once you have added the correct properties, you are ready to build the application. You can do this by navigating to the project’s base directory from the terminal and running the following command.
 
 `mvn clean install`
 
-When the project builds successfully, you can then run the following command to start the project
+When the project builds successfully, you can run the following command to start the project.
 
 `java -jar target/bundle_client-1.0.0.jar <argument as below>`
  Example : `java -jar target/bundle_client-1.0.0.jar createUser`
 
-Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product / account)) one after the other.
+Argument: An argument which defines the feature user wants to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product / account)) one after the other. createUser, readUser, etc mentioned below are the arguments.
 
     * createUser - User enrolment into product (s) .
     * readUser   - Retrieve user’s enrolled product (s) .
@@ -116,35 +115,23 @@ Argument: An argument which defines the feature user wants to run through the co
    
 ## Use Cases <a name="use-cases"></a>
 
-> Case 1: [USER ENROLLMENT INTO PRODUCT(S) ](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
+> Case 1: [POST User Enrollment](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment) for user enrollment into products 
 
-  - The Bundle Profile API allows you to enroll a user into product (s) based on the product (s) name passed in the request
+  - The Bundle Profile API allows you to enroll a user into products based on the product’s name passed in the request.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users` | POST | [BundleUser](docs/BundleUser.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 2: [RETRIEVE USER'S ENROLLED PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#get-products-enrolled-for-user)
-
-  - The Bundle Profile API allows you to retrieve the product (s) details for a specific user passed in the request.
+> Case 2: [GET Products Enrolled for User](https://developer.mastercard.com/documentation/bundle-enablement#get-products-enrolled-for-user) to Retrieve user’s enrolled products  
+  - The Bundle Profile API allows you to retrieve the product’s details for a specific User ID passed in the request.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}` | GET | NA | NA |
     
-
-> Case 3: [ADD PRODUCT(S) ENROLLMENT FOR USER](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
-
-  - The Bundle Profile API allows to add Product (s) for a specific user passsed in the API Endpoint.
-  - For field level information, refer to model classes.
-  
-    | URL | Method | Request | Response |
-    | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
-
-
-> Case 4: [ADD A USER ACCOUNT TO THE PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account)
+> Case 3: [PATCH Add User Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account) to add user account to the products 
 
   - The Bundle Profile API allows to add user account to the Product(s) for a specific user passed in the API Endpoint .
   - For field level information, refer to model classes.
@@ -153,7 +140,16 @@ Argument: An argument which defines the feature user wants to run through the co
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 5: [REMOVE USER'S ACCOUNT TAGGED ON AN ENROLLED PRODUCT](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account)
+ > Case 4: [PATCH Add Product](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product) to add products for a user 
+
+  - The Bundle Profile API allows to add Product (s) for a specific user passed in the API Endpoint.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    
+> Case 5: [PATCH Remove Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account) to remove user’s account tagged on an enrolled product 
 
   - The Bundle Profile API allows to remove the account tagged on a enrolled product for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
@@ -162,9 +158,8 @@ Argument: An argument which defines the feature user wants to run through the co
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
-> Case 6: [REPLACE USER'S PAN FOR ALL PRODUCTS TIED TO THE EXISTING PAN](https://developer.mastercard.com/documentation/bundleenablement#patch-replace-account)
+> Case 6: [PATCH Replace Account](https://developer.mastercard.com/documentation/bundleenablement#patch-replace-account) to Replace User’s account number for all products tied             to the existing payment card account number 
 
-  - PAN STAND FOR PRIMARY ACCOUNT NUMBER
   - The Bundle Profile API allows to replace user PAN Account with the given new PAN Account on a enrolled product for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
   
@@ -172,7 +167,7 @@ Argument: An argument which defines the feature user wants to run through the co
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
-> Case 7: [UPDATE USER INFORMATION ACROSS PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user)
+> Case 7: [PATCH Update User](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user) to update user information across products.
 
   - The Bundle Profile API allows to update user personal information for a specific user passed in the API Endpoint.
   - For field level information, refer to model classes.
@@ -186,12 +181,13 @@ Argument: An argument which defines the feature user wants to run through the co
 The `com.mastercard.developer.interceptors` package will provide you with some request interceptor classes you can use when configuring your API client. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
 
 ### Request Examples <a name="request-examples"></a>
-You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Usecase.
-{userid} field is editable in the RequestHelper.java class.
-Below are the static user id values configured for the Bundle Profile Reference Application.
- * user234 for Products: airport, wifi
- * user1235 for Products: rewards, benefits, offers
- * specialpayUser for Product: special pay
+You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Use case. 
+{userid} field is editable in the RequestHelper.java class. Below are the static User ID values configured for the Bundle Profile Reference Application. You may pass the below User IDs for GET operation to retrieve information on user’s enrolled products. 
+
+* For Products (airport, Wi-Fi), User ID - user234 is supported
+* For Products (rewards, benefits, offers), User ID - user1235 is supported
+* For Product: specialpay (Note: This is a test product), User ID - specialpayUser is supported
+
 
 ## Support <a name="support"></a>
 For any clarifications, please reach out to Digital_Enablement_Team_3@mastercard.com.
