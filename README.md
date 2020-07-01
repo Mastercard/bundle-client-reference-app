@@ -23,7 +23,7 @@ Bundle Profile enables the following actions:
  * Update the consumer and product enrollment information
  
  This Reference application is a guide for using Bundle Profile APIs for Consumer Product Enrollment. 
- Please visit Mastercard Developer portal for more details about the API:[Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
+ Please visit Mastercard Developer portal for more details about the API: [Mastercard Developers.](https://developer.mastercard.com/documentation/bundle-enablement)
 
 ### Compatibility <a name="compatibility"></a>
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later
@@ -50,11 +50,11 @@ Bundle Profile enables the following actions:
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
           
-     >**mastercard.bundle.client.p12.path=BundleProfile.p12**,this refers to the p12 file name obtained from aforementioned steps.
+     >**mastercard.bundle.client.p12.path=BundleProfile.p12**, this refers to the p12 file name obtained from aforementioned steps.
           
-     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000**,this refers to your consumer key you get         when you create a project under API.
+     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000**, this refers to your consumer key you get         when you create a project under API.
             
-     >**mastercard.bundle.client.ref.app.keystore.password=pwd** this refers to the password you obtain when you create the p12 key.
+     >**mastercard.bundle.client.ref.app.keystore.password=pwd**, this refers to the password you obtain when you create the p12 key.
      
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
 Reference app uses [Open API Generator](https://github.com/OpenAPITools/openapi-generator) that generates API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks.
