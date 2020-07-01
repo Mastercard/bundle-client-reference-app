@@ -33,7 +33,6 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
 * A text editor or IDE
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
 * [Apache Maven 3.3+](https://maven.apache.org/download.cgi)
-* Set up the `JAVA_HOME` environment variable to match the location of your Java installation.
 
 ### Configuration <a name="configuration"></a>
 
@@ -46,14 +45,12 @@ Please see here for more details on the API:[Mastercard Developers.](https://dev
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, its a static field, for making the API calls.
           
-     #### Authentication of API calls needs the below properties.
+     >**mastercard.bundle.client.p12.path=BundleProfile.p12**,this refers to the p12 file name which we obtained from above steps.
           
-     >**mastercard.bundle.client.p12.path=**  <p12 filename>  which we downloaded from the above steps for example: bundle-profile-reference.p12
-          
-     >**mastercard.bundle.client.ref.app.consumer.key=** this refers to your consumer key which we get when create a project under API 
+     >**mastercard.bundle.client.ref.app.consumer.key=Abcdfefgjhilklmnopqrstuvwxyz-dxcq_zD7IiPa0df175e!22a7fddba56e800000000000000000** this refers to your consumer key which we         get when create a project under API 
             
-     >**mastercard.bundle.client.ref.app.keystore.password=** this is the default value of key password. 
-
+     >**mastercard.bundle.client.ref.app.keystore.password=pwd** this refers to the pwd which we obtained while creating the p12 key.
+     
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
 [Open API Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from the [Open API Specs](https://github.com/OAI/OpenAPI-Specification). 
 It provides generators and library templates for supporting multiple languages and frameworks.
