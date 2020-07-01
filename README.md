@@ -111,7 +111,7 @@ Argument: An argument which defines the feature user wants to run through the co
    
 ## Use Cases <a name="use-cases"></a>
 
-> Case 1: [USER ENROLMENT INTO PRODUCT(S) ](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
+> Case 1: [USER ENROLLMENT INTO PRODUCT(S) ](https://developer.mastercard.com/documentation/bundle-enablement#post-user-enrollment)
 
   - The Bundle Profile API allows you to enroll a user into product (s) based on the product (s) name passed in the request
   - For field level information, refer to model classes.
@@ -129,7 +129,7 @@ Argument: An argument which defines the feature user wants to run through the co
     | `/users/{userid}` | GET | NA | NA |
     
 
-> Case 3: [ADD PRODUCT(S) ENROLMENT FOR USER ](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
+> Case 3: [ADD PRODUCT(S) ENROLLMENT FOR USER](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product)
 
   - The Bundle Profile API allows to add Product (s) for a specific user passsed in the API Endpoint.
   - For field level information, refer to model classes.
@@ -139,7 +139,7 @@ Argument: An argument which defines the feature user wants to run through the co
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 
-> Case 4: [ADD A USER ACCOUNT TO THE PRODUCT(S) .](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account)
+> Case 4: [ADD A USER ACCOUNT TO THE PRODUCT(S)](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account)
 
   - The Bundle Profile API allows to add user account to the Product(s) for a specific user passed in the API Endpoint .
   - For field level information, refer to model classes.
