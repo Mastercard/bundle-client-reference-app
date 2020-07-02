@@ -57,7 +57,7 @@ Bundle Profile enables the following actions:
      >**mastercard.bundle.client.ref.app.keystore.password=pwd**, this refers to the password you obtain when you create the p12 key.
      
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
-Reference app uses [Open API Generator](https://github.com/OpenAPITools/openapi-generator) that generates API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks.
+bundle-client-ref used [Open API Generator](https://github.com/OpenAPITools/openapi-generator) that generates API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks.
 
 See also:
 * [Open API Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
