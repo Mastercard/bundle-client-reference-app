@@ -129,7 +129,7 @@ Argument: An argument which defines the feature user wants to run through the co
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}` | GET | NA | NA |
+    | `/users/{userid}` | GET | NA | [BundleUserResponse](docs/BundleUserResponse.md) |
     
 > Case 3: [PATCH Add User Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-user-account) to add user account to the products.
 
