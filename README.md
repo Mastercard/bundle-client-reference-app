@@ -57,7 +57,7 @@ Bundle Profile enables the following actions:
      >**mastercard.bundle.client.ref.app.keystore.password=pwd**, this refers to the password you obtain when you create the p12 key.
      
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
-bundle-client-ref used [Open API Generator](https://github.com/OpenAPITools/openapi-generator) that generates API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks.
+You may refer to [Open API Generator](https://github.com/OpenAPITools/openapi-generator)used by "bundle-client-ref" that generates API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks.
 
 See also:
 * [Open API Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
@@ -94,7 +94,7 @@ See also:
 ```
 
 ### Build and Execute <a name="build-and-execute"></a>
-Once you have added the correct properties, you are ready to build the application. You can do this by navigating to the project’s base directory from the terminal and running the following command.
+Once you have added the correct properties, you are ready to build the application. You can do this by navigating to the project’s base directory from the terminal and then by running the following command.
 
 `mvn clean install`
 
@@ -178,7 +178,7 @@ Argument: An argument which defines the feature user wants to run through the co
     
     
 ### Authorization <a name="authorization"></a>
-The `com.mastercard.developer.interceptors` package will provide some request interceptor classes to use for configuring your API client. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
+For configuring your API client, the`com.mastercard.developer.interceptors` package provides you some request interceptor classes. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
 
 ### Request Examples <a name="request-examples"></a>
 You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Use case. {userid} field is editable in the RequestHelper.java class. Below are the static User ID values configured for the Bundle Profile Reference Application. You may pass the below User IDs for GET operation to retrieve information on user’s enrolled products.
