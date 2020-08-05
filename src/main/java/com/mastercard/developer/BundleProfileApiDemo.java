@@ -54,7 +54,13 @@ public class BundleProfileApiDemo {
             printMessage("STARTING REPLACE ACCOUNT FOR BUNDLE PROFILE");
             executeReplaceAccountBundleUserScenario(bundleProfileApi);
         }
-//
+
+        if (runThisScenario(args, "updateUser")) {
+            printMessage("STARTING UPDATE USER FOR BUNDLE PROFILE");
+            executeReplaceUserDetailScenario(bundleProfileApi);
+        }
+
+
 
     }
 
@@ -102,9 +108,9 @@ public class BundleProfileApiDemo {
         System.out.println(gson.toJson(bundleUserResponse));
     }
 
-    private static void executeReplaceUserDetailScenario(BundleProfileApi bundleProfileApi, String userUpdate) throws ApiException, IOException {
+    private static void executeReplaceUserDetailScenario(BundleProfileApi bundleProfileApi) throws ApiException, IOException {
         Gson gson = new Gson();
-        BundleUserPatch bundleUserPatch = RequestHelper.createReplaceUserPayload(userUpdate);
+        BundleUserPatch bundleUserPatch = RequestHelper.createReplaceUserPayload();
         BundleUserResponse bundleUserResponse = bundleProfileApi.patchUser(RequestHelper.USER_ID, bundleUserPatch, RequestHelper.X_Client_CORRELEATION_ID);
         System.out.println(gson.toJson(bundleUserResponse));
     }

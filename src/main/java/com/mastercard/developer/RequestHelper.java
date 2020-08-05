@@ -186,7 +186,7 @@ public class RequestHelper {
         return bundleUserPatch;
     }
 
-    public static BundleUserPatch createReplaceUserPayload(String product) {
+    public static BundleUserPatch createReplaceUserPayload() {
         BundleUserPatch bundleUserPatch = new BundleUserPatch();
         List<PatchDocument> patchDocumentList = new ArrayList<PatchDocument>();
         PatchDocument patchDocument = new PatchDocument();
