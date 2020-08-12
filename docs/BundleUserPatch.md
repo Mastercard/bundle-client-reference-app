@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**patch** | [**List&lt;PatchDocument&gt;**](PatchDocument.md) |  |  [optional]
+**patches** | [**List&lt;PatchDocument&gt;**](PatchDocument.md) |  |  [optional]
 
 
 
