@@ -91,7 +91,7 @@ paths:
           schema:
             $ref: '#/definitions/Errors'
       x-testable: true
-  '/users/{user_id}/patch':
+  '/users/{user_id}/patches':
     post:
       tags:
         - bundle profile
@@ -167,7 +167,7 @@ definitions:
   BundleUserPatch:
     type: object
     properties:
-      patch:
+      patches:
         type: array
         items:
           $ref: '#/definitions/PatchDocument'

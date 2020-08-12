@@ -5,7 +5,7 @@ All URIs are relative to *https://api.mastercard.com/bundle/profile*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createUser**](BundleProfileApi.md#createUser) | **POST** /users | Create Profile
-[**patchUser**](BundleProfileApi.md#patchUser) | **POST** /users/{user_id}/patch | Partially Update Profile
+[**patchUser**](BundleProfileApi.md#patchUser) | **POST** /users/{user_id}/patches | Partially Update Profile
 [**readConsent**](BundleProfileApi.md#readConsent) | **GET** /users/{user_id}/products/{product}/consents | Find Consent by Id and product
 [**readUser**](BundleProfileApi.md#readUser) | **GET** /users/{user_id} | Find User by Id
 
