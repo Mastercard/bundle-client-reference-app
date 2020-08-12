@@ -140,7 +140,7 @@ public class RequestHelper {
         Gson gson = new Gson();
         patchDocument.setValue(gson.fromJson(PAYLOAD_TO_PATCH_ADD_ONE, Object.class));
         patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
+        bundleUserPatch.setPatches(patchDocumentList);
         return bundleUserPatch;
     }
 
@@ -154,7 +154,7 @@ public class RequestHelper {
         Gson gson = new Gson();
         patchDocument.setValue(gson.fromJson(PAYLOAD_TO_PATCH_ADD_ACCOUNT, Object.class));
         patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
+        bundleUserPatch.setPatches(patchDocumentList);
         return bundleUserPatch;
     }
 
@@ -168,7 +168,7 @@ public class RequestHelper {
         Gson gson = new Gson();
         patchDocument.setValue(gson.fromJson(PAYLOAD_TO_PATCH_REMOVE_ACCOUNT,Object.class));
         patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
+        bundleUserPatch.setPatches(patchDocumentList);
         return bundleUserPatch;
     }
 
@@ -182,11 +182,11 @@ public class RequestHelper {
         Gson gson = new Gson();
         patchDocument.setValue(gson.fromJson(PAYLOAD_TO_PATCH_REPLACE_ACCOUNT,Object.class));
         patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
+        bundleUserPatch.setPatches(patchDocumentList);
         return bundleUserPatch;
     }
 
-    public static BundleUserPatch createReplaceUserPayload() {
+    public static BundleUserPatch createReplaceUserPayload(String product) {
         BundleUserPatch bundleUserPatch = new BundleUserPatch();
         List<PatchDocument> patchDocumentList = new ArrayList<PatchDocument>();
         PatchDocument patchDocument = new PatchDocument();
@@ -196,7 +196,7 @@ public class RequestHelper {
         Gson gson = new Gson();
         patchDocument.setValue(gson.fromJson(PAYLOAD_TO_PATCH_UPDATE_USER,Object.class));
         patchDocumentList.add(patchDocument);
-        bundleUserPatch.setPatch(patchDocumentList);
+        bundleUserPatch.setPatches(patchDocumentList);
         return bundleUserPatch;
     }
 
