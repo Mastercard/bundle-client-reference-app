@@ -138,7 +138,7 @@ Argument: An argument which defines the feature user wants to run through the co
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
  > Case 4: [PATCH Add Product](https://developer.mastercard.com/documentation/bundle-enablement#patch-add-product) to add products for a user.
 
@@ -147,7 +147,7 @@ Argument: An argument which defines the feature user wants to run through the co
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
 > Case 5: [PATCH Remove Account](https://developer.mastercard.com/documentation/bundle-enablement#patch-remove-account) to remove user’s account tagged on an enrolled product.
 
@@ -156,7 +156,7 @@ Argument: An argument which defines the feature user wants to run through the co
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 > Case 6: [PATCH Replace Account](https://developer.mastercard.com/documentation/bundleenablement#patch-replace-account) to Replace User’s account number for all products tied             to the existing payment card account number.
 
@@ -165,7 +165,7 @@ Argument: An argument which defines the feature user wants to run through the co
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 > Case 7: [PATCH Update User](https://developer.mastercard.com/documentation/bundle-enablement#patch-update-user) to update user information across products.
 
@@ -174,7 +174,7 @@ Argument: An argument which defines the feature user wants to run through the co
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
     
 ### Authorization <a name="authorization"></a>
