@@ -16,7 +16,7 @@
 - [Support](#support)
 
 ## Overview <a name="overview"></a>
-The Consumer Product Enrollment API was formerly the **Bundle Profile API**.
+The Consumer Product Enrollment(CPE) API was formerly the **Bundle Profile API**.
 
 This is a product enrollment service that allows a user to enroll with Mastercard solutions. The Mastercard solutions are preconfigured bundles comprised of multiple products and services. This API user enables the simultaneous user enrollment into the products within the solutions using optional consents and payment card accounts.
 Consumer Product Enrollment enables:
@@ -24,7 +24,7 @@ Consumer Product Enrollment enables:
  * View and update consumer enrollment details
  * Update the product and solution enrollment details
  
- This Reference application is a guide for using Consumer Product Enrollment APIs for Consumer Product Enrollment. 
+ This Reference application is a guide for using CPE APIs for product and solution enrollments. 
  Please visit Mastercard Developer portal for more details about the API: [Mastercard Developers.](https://developer.mastercard.com/consumer-management/documentation/)
 
 ### Compatibility <a name="compatibility"></a>
@@ -35,19 +35,24 @@ Consumer Product Enrollment enables:
 * [Using OAuth 1.0a to Access Mastercard APIs](https://developer.mastercard.com/platform/documentation/using-oauth-1a-to-access-mastercard-apis/)
 
 ## Usage <a name="usage"></a>
+
 ### Prerequisites <a name="prerequisites"></a>
 * [Mastercard Developers Account](https://developer.mastercard.com/dashboard) with access to "MastercardON" API
 * A text editor or IDE
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
 * [Apache Maven 3.3+](https://maven.apache.org/download.cgi)
 
-### Configuration <a name="configuration"></a>
+### Access to sandbox <a name="Access to sandbox"></a>
+The Sandbox environment allows you to experiment with the API using a reference application prior to formal onboarding and adoption of the CPE API.
+
+
+### Onboarding <a name="Onboarding"></a> and Configuration <a name="configuration"></a>
 
 * Clone the project - git clone https://github.com/Mastercard/bundle-client-ref.git.
-* Create an account at [Mastercard Developers](https://developer.mastercard.com/account/sign-up).  
-* Create new project and add MastercardON API to your project.  
-* Configure project and download signing key. It will download a zip file.  
-* Unzip the downloaded key and select .p12 file from zip and copy it to src/main/resources in the project folder.
+* Sign up to create a [Mastercard Developers account](https://developer.mastercard.com/account/sign-up). In case you already have an account, login and follow the below steps.
+* Create a new project in your account and add MastercardON API to your project.  
+* Configure project and download your sandbox signing keys. It will download a zip file.  
+* Unzip the downloaded key and select .p12 file(certificate) from zip and copy it to src/main/resources in the project folder.
 * Open `${project.basedir}/src/main/resources/application.properties` and configure the below parameters.
       
      >**mastercard.bundle.client.api.base.path=https://sandbox.api.mastercard.com**, it is a static field, for making the API calls.
@@ -59,7 +64,7 @@ Consumer Product Enrollment enables:
      >**mastercard.bundle.client.ref.app.keystore.password=pwd**, this refers to the password you obtain when you create the p12 key.
      
 ### Integrating with OpenAPI Generator <a name="integrating-with-openapi-generator"></a>
-You may refer to [Open API Generator](https://github.com/OpenAPITools/openapi-generator)used by "bundle-client-ref" that generates the API client libraries from  [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks. (Note: This section is informational and developer who integrates need not perform these steps.)
+You may refer to [Open API Generator](https://github.com/OpenAPITools/openapi-generator) used by "bundle-client-ref" that generates the API client libraries from [Open API Specs](https://github.com/OAI/OpenAPI-Specification). It provides generators and library templates for supporting multiple languages and frameworks. (Note: This section is informational and developer who integrates need not perform these steps.)
 
 Also see:
 * [Open API Generator (maven Plugin)](https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin)
@@ -103,23 +108,24 @@ Once you have added the correct properties, you are ready to build the applicati
 When the project builds successfully, you can run the following command to start the project.
 
 `java -jar target/bundle_client-1.0.0.jar <argument as below>`
- Example : `java -jar target/bundle_client-1.0.0.jar createUser`
+ Example: `java -jar target/bundle_client-1.0.0.jar createUser`
 
  Argument: An argument defines the feature an executor can use to run through the command line. If you don’t specify this argument, it will run all the features (create User, Read User, Update User (product / account)) one after the other. createUser, readUser, etc mentioned below are the arguments.
 
-    * createUser - User enrollment into products .
-    * readUser   - Retrieve user’s enrolled products .
-    * addProduct - Add products for a user.
-    * addAccount - Add a user account to the products .
-    * removeAccount - Remove user's account tagged on enrolled product.
-    * replaceAccount - Replace user's primary account number for all products tied to the existing primary account number.
-    * replaceUser - Update the user information across products.
+    * createUser - Provides initial enrollment of a user into products and solutions.
+    * readUser   - Provides read-only view into the enrolled products of a given user.
+    * addProduct - Adds product enrollment for the user.
+	* replaceUser - Updates user's personal information across products.
+    * addAccount - Provides addition of a payment account to a user.
+    * removeAccount - Removes the payment account tagged with enrolled products. 
+    * replaceAccount - Update user payment account on all products tied to the existing primary account number.
+   
    
 ## Use Cases <a name="use-cases"></a>
 
 > Case 1: [Enroll User](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user) for user enrollment into products 
 
-  - The Consumer Product Enrollment API allows you to enroll a user into products based on the product’s name passed in the request.
+  - Provides initial enrollment of a user into products and solutions. This operation is used to complete the first user enrollment. 
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -127,24 +133,24 @@ When the project builds successfully, you can run the following command to start
     | `/users` | POST | [BundleUser](docs/BundleUser.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
 > Case 2: [View Enrolled Products](https://developer.mastercard.com/consumer-management/documentation/use-cases/#view-enrolled-products) to Retrieve user’s enrolled products  
-  - The Consumer Product Enrollment API allows you to retrieve the product’s details for a specific User ID passed in the request.
+  - Provides read-only view into the enrolled products of a given user. This operation is used to confirm enrollment status in concert with the POST enrollments and PATCH updates.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}` | GET | NA | [BundleUserResponse](docs/BundleUserResponse.md) |
-    
-> Case 3: [Update User](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user) to update user information across products.
 
-  - The Consumer Product Enrollment API allows to update user personal information for a specific user passed in the API Endpoint.
+> Case 3: [Add Product](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-product) to add products for a user.
+
+  - Adds product enrollment for the user. This operation occurs only after the initial user enrollment (POST) and applies to solution journeys that gradually add product capabilities as the user incrementally interacts with the solution.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
-	
- > Case 4: [Add Product](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-product) to add products for a user.
+    
+> Case 4: [Update User](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user) to update user information across products.
 
-  - The Consumer Product Enrollment API allows to add Products for a specific user passed in the API Endpoint.
+  - Updates user information across products. This operation is called when a user’s personal information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -153,7 +159,7 @@ When the project builds successfully, you can run the following command to start
 	
 > Case 5: [Add Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-payment-account) to add user account to the products.
 
-  - The Consumer Product Enrollment API allows to add user account to the products enrolled for a specific user passed in the API Endpoint. .
+  - Provides addition of a payment account to a user. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -162,7 +168,7 @@ When the project builds successfully, you can run the following command to start
     
 > Case 6: [Remove Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-payment-account) to remove user’s account tagged on an enrolled product.
 
-  - The Consumer Product Enrollment API allows to remove the account tagged on an enrolled product for a specific user passed in the API Endpoint.
+  -  Removes the payment account tagged with enrolled products. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -171,7 +177,7 @@ When the project builds successfully, you can run the following command to start
 
 > Case 7: [Replace Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-payment-account) to Replace User’s account number for all products tied             to the existing payment card account number.
 
-  - The Consumer Product Enrollment API allows to replace user PAN Account with the given new PAN Account on an enrolled product for a specific user passed in the API Endpoint.
+  - Update user payment account on all products tied to the existing primary account number. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -180,7 +186,7 @@ When the project builds successfully, you can run the following command to start
     
     
 ### Authorization <a name="authorization"></a>
-For configuring your API client, the`com.mastercard.developer.interceptors` package provides you some request interceptor classes. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
+For configuring your API client, the `com.mastercard.developer.interceptors` package provides you some request interceptor classes. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
 
 ### Request Examples <a name="request-examples"></a>
 You can change the default input passed to APIs, modify values in the src/main/resources/templates for POST and UPDATE Use case. {userid} field is editable in the RequestHelper.java class. Below are the static User ID values configured for the Consumer Product Enrollment Reference Application. You may pass the below User IDs for GET operation to retrieve information on user’s enrolled products.
@@ -192,4 +198,3 @@ You can change the default input passed to APIs, modify values in the src/main/r
 
 ## Support <a name="support"></a>
 For any clarifications, please reach out to Digital_Enablement_Team_3@mastercard.com.
-
