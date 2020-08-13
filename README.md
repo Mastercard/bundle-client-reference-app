@@ -146,7 +146,7 @@ When the project builds successfully, you can run the following command to start
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
 > Case 4: [Update User](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user) to update user information across products.
 
@@ -155,7 +155,8 @@ When the project builds successfully, you can run the following command to start
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+
 	
 > Case 5: [Add Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-payment-account) to add user account to the products.
 
@@ -164,7 +165,7 @@ When the project builds successfully, you can run the following command to start
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
 > Case 6: [Remove Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-payment-account) to remove user’s account tagged on an enrolled product.
 
@@ -173,7 +174,7 @@ When the project builds successfully, you can run the following command to start
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 > Case 7: [Replace Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-payment-account) to Replace User’s account number for all products tied             to the existing payment card account number.
 
@@ -182,7 +183,7 @@ When the project builds successfully, you can run the following command to start
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
-    | `/users/{userid}/patch` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
+    | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
     
 ### Authorization <a name="authorization"></a>
