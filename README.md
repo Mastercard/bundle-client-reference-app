@@ -6,7 +6,8 @@
   * [References](#references)
 - [Usage](#usage)
   * [Prerequisites](#prerequisites)
-  * [Configuration](#configuration)
+  * [Access to sandbox](#access-to-sandbox)
+  * [Onboarding and configuration](#onboarding-and-configuration)
   * [Integrating with Open API Generator](#integrating-with-openapi-generator)
   * [Build and Execute](#build-and-execute)
 - [Use Cases](#use-cases)
@@ -42,11 +43,11 @@ Consumer Product Enrollment enables:
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
 * [Apache Maven 3.3+](https://maven.apache.org/download.cgi)
 
-### Access to sandbox <a name="Access to sandbox"></a>
+### Access to sandbox <a name="access-to-sandbox"></a>
 The Sandbox environment allows you to experiment with the API using a reference application prior to formal onboarding and adoption of the CPE API.
 
 
-### Onboarding <a name="Onboarding"></a> and Configuration <a name="configuration"></a>
+### Onboarding and Configuration <a name="onboarding-and-configuration"></a>
 
 * Clone the project - git clone https://github.com/Mastercard/bundle-client-ref.git.
 * Sign up to create a [Mastercard Developers account](https://developer.mastercard.com/account/sign-up). In case you already have an account, login and follow the below steps.
