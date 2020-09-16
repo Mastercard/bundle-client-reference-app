@@ -3,9 +3,6 @@ package com.mastercard.developer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import jdk.nashorn.internal.parser.JSONParser;
-import org.json.JSONObject;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.api.BundleProfileApi;
 import org.openapitools.client.model.*;
@@ -60,7 +57,40 @@ public class BundleProfileApiDemo {
             executeReplaceUserDetailScenario(bundleProfileApi);
         }
 
+        if (runThisScenario(args, "readClsUser")) {
+            printMessage("STARTING GET CLS USER FOR BUNDLE PROFILE");
+            executeGetEnrollmentUserScenario(bundleProfileApi);
+        }
 
+        if (runThisScenario(args, "createClsUser")) {
+            printMessage("STARTING CREATE CLS USER FOR BUNDLE PROFILE");
+            executeCreateEnrollmentUserScenario(bundleProfileApi);
+        }
+
+        if (runThisScenario(args, "deleteClsUser")) {
+            printMessage("STARTING DELETE CLS USER FOR BUNDLE PROFILE");
+            executeDeleteEnrollmentUserScenario(bundleProfileApi);
+        }
+
+        if (runThisScenario(args, "updateClsUser")) {
+            printMessage("STARTING UPDATE CLS USER FOR BUNDLE PROFILE");
+            executeUpdateEnrollmentUserScenario(bundleProfileApi);
+        }
+
+        if (runThisScenario(args, "patchAddClsUser")) {
+            printMessage("STARTING PATCH ADD CLS USER FOR BUNDLE PROFILE");
+            executePatchAddEnrollmentUserScenario(bundleProfileApi);
+        }
+
+        if (runThisScenario(args, "patchReplaceClsUser")) {
+            printMessage("STARTING PATCH REPLACE CLS USER FOR BUNDLE PROFILE");
+            executePatchReplaceEnrollmentUserScenario(bundleProfileApi);
+        }
+
+        if (runThisScenario(args, "patchRemoveClsUser")) {
+            printMessage("STARTING PATCH REMOVE CLS USER FOR BUNDLE PROFILE");
+            executePatchRemoveEnrollmentUserScenario(bundleProfileApi);
+        }
 
     }
 
@@ -115,11 +145,55 @@ public class BundleProfileApiDemo {
         System.out.println(gson.toJson(bundleUserResponse));
     }
 
+    private static void executeGetEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        Gson gson = new Gson();
+        EnrollmentUserResponse enrollmentUserResponse = bundleProfileApi.readClsUser(RequestHelper.CLS_USER_ID, RequestHelper.X_Client_CORRELEATION_ID);
+        System.out.println(gson.toJson(enrollmentUserResponse));
+    }
+
+    private static void executeCreateEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        EnrollmentUser enrollmentUser = RequestHelper.getClsPostBody();
+        EnrollmentResponse enrollmentResponse = bundleProfileApi.createClsUser(enrollmentUser, RequestHelper.X_Client_CORRELEATION_ID);
+        printEnrollmentResponseMessage(enrollmentResponse);
+    }
+
+    private static void executeDeleteEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        EnrollmentResponse enrollmentResponse = bundleProfileApi.deleteClsUser(RequestHelper.CLS_USER_ID, RequestHelper.X_Client_CORRELEATION_ID, "default");
+        printEnrollmentResponseMessage(enrollmentResponse);
+    }
+
+    private static void executeUpdateEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        EnrollmentUser enrollmentUser = RequestHelper.getClsPutBody();
+        EnrollmentResponse enrollmentResponse = bundleProfileApi.updateCls(RequestHelper.CLS_USER_ID, enrollmentUser,
+                RequestHelper.X_Client_CORRELEATION_ID);
+        printEnrollmentResponseMessage(enrollmentResponse);
+    }
+
+    private static void executePatchAddEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        DiscretePatchesRequest discretePatchesRequest = RequestHelper.getClsPatchAddBody();
+        EnrollmentResponse enrollmentResponse = bundleProfileApi.updateClsPartially(RequestHelper.CLS_USER_ID,
+                discretePatchesRequest, RequestHelper.X_Client_CORRELEATION_ID);
+        printEnrollmentResponseMessage(enrollmentResponse);
+    }
+
+    private static void executePatchReplaceEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        DiscretePatchesRequest discretePatchesRequest = RequestHelper.getClsPatchReplaceBody();
+        EnrollmentResponse enrollmentResponse = bundleProfileApi.updateClsPartially(RequestHelper.CLS_USER_ID,
+                discretePatchesRequest, RequestHelper.X_Client_CORRELEATION_ID);
+        printEnrollmentResponseMessage(enrollmentResponse);
+    }
+
+    private static void executePatchRemoveEnrollmentUserScenario(BundleProfileApi bundleProfileApi) throws ApiException {
+        DiscretePatchesRequest discretePatchesRequest = RequestHelper.getClsPatchRemoveBody();
+        EnrollmentResponse enrollmentResponse = bundleProfileApi.updateClsPartially(RequestHelper.CLS_USER_ID,
+                discretePatchesRequest, RequestHelper.X_Client_CORRELEATION_ID);
+        printEnrollmentResponseMessage(enrollmentResponse);
+    }
+
 
     private static boolean runThisScenario(String[] args, String scenario) {
         return (args != null && args.length > 0 && args[0].contains(scenario)) || (args == null || args.length == 0);
     }
-
 
     private static void printMessage(String scenario) {
         System.out.println("--------------------------------------------------------------------");
@@ -134,5 +208,9 @@ public class BundleProfileApiDemo {
         System.out.println(gson.toJson(bundleUserResponse));
     }
 
+    private static void printEnrollmentResponseMessage(EnrollmentResponse enrollmentResponse){
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(enrollmentResponse));
+    }
 
 }

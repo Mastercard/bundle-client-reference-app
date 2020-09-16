@@ -1,0 +1,6 @@
+{
+  "patches": [{
+    "op": "remove",
+    "path": "$.enrollment.user.addresses[]"
+  }]
+}

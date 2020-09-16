@@ -1,0 +1,27 @@
+{
+  "patches": [{
+    "op": "add",
+    "path": "$.enrollment.user.addresses[]",
+    "value": {
+      "enrollment": {
+        "user": {
+          "addresses": [
+            {
+              "type": "work",
+              "primary": false,
+              "operation": null,
+              "formatted": "2200 Mastercard Blvd O'Fallon MO 63368",
+              "streetAddress": "2200 Mastercard Blvd",
+              "locality": "O'Fallon",
+              "region": "MO",
+              "postalCode": "63368",
+              "country": "US",
+              "continent": null
+            }
+          ]
+        }
+      }
+    }
+  }
+  ]
+}

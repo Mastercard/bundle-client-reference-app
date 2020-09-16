@@ -52,6 +52,18 @@ public class RequestHelper {
     private static String PAYLOAD_TO_PATCH_UPDATE_USER =
             resourceContent("templates/" + "patch-user-update.json");
 
+    public static String CLS_USER_ID = "clsUser";
+
+    private static String POST_CLS_USER_PAYLOAD = resourceContent("templates/" + "post-cls-user.json");
+
+    private static String PUT_CLS_USER_PAYLOAD = resourceContent("templates/" + "put-cls-user.json");
+
+    private static String PATCH_ADD_CLS_USER_PAYLOAD = resourceContent("templates/" + "patches-add-cls-user.json");
+
+    private static String PATCH_REPLACE_CLS_USER_PAYLOAD = resourceContent("templates/" + "patches-add-cls-user.json");
+
+    private static String PATCH_REMOVE_CLS_USER_PAYLOAD = resourceContent("templates/" + "patches-add-cls-user.json");
+
 
     private static Properties prop = null;
 
@@ -114,6 +126,31 @@ public class RequestHelper {
         return postCreationMap;
 
     }
+    public static EnrollmentUser getClsPostBody() {
+        Gson gson = new Gson();
+        return gson.fromJson(POST_CLS_USER_PAYLOAD, EnrollmentUser.class);
+    }
+
+    public static EnrollmentUser getClsPutBody() {
+        Gson gson = new Gson();
+        return gson.fromJson(PUT_CLS_USER_PAYLOAD, EnrollmentUser.class);
+    }
+
+    public static DiscretePatchesRequest getClsPatchAddBody() {
+        Gson gson = new Gson();
+        return gson.fromJson(PATCH_ADD_CLS_USER_PAYLOAD, DiscretePatchesRequest.class);
+    }
+
+    public static DiscretePatchesRequest getClsPatchReplaceBody() {
+        Gson gson = new Gson();
+        return gson.fromJson(PATCH_REPLACE_CLS_USER_PAYLOAD, DiscretePatchesRequest.class);
+    }
+
+    public static DiscretePatchesRequest getClsPatchRemoveBody() {
+        Gson gson = new Gson();
+        return gson.fromJson(PATCH_REMOVE_CLS_USER_PAYLOAD, DiscretePatchesRequest.class);
+    }
+
 
     public static ApiClient signRequest() throws Exception {
         ApiClient apiClient = new ApiClient();

@@ -1,0 +1,120 @@
+{
+  "enrollment": {
+    "user": {
+      "externalId": "some-external-id",
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "userId": "clsPutUser",
+      "id": "44e15e022bb10c4ba334f7e823d4ae76dc672720",
+      "userName": "clsPutUser@mastercard.com",
+      "name": {
+        "formatted": "Mr. Api Test User Great",
+        "familyName": "User",
+        "givenName": "Api",
+        "middleName": "Test",
+        "honorificPrefix": "Mr.",
+        "honorificSuffix": "Great"
+      },
+      "displayName": "Api Test User",
+      "nickName": "Bob",
+      "profileUrl": "https://www.example.com/profile/bob",
+      "title": "Doctor",
+      "userType": "B2C",
+      "preferredLanguage": "en_US",
+      "locale": "en_US",
+      "timezone": "America/Los_Angeles",
+      "active": true,
+      "password": "P@55w0rd",
+      "emails": [
+        {
+          "type": "work",
+          "primary": false,
+          "operation": null,
+          "value": "robert.d.tester@mastercard.com",
+          "display": "robert.d.tester@mastercard.com"
+        }
+      ],
+      "phoneNumbers": [
+        {
+          "type": "work",
+          "primary": true,
+          "operation": null,
+          "value": "tel:+16367222222",
+          "display": "blocked caller"
+        }
+      ],
+      "ims": [
+        {
+          "value": "IM Value",
+          "display": "IM Away",
+          "primary": true,
+          "type": "aim"
+        }
+      ],
+      "photos": [
+        {
+          "value": "https://photos.example.com/profilephoto/72930000000Ccne/F",
+          "display": "photo display",
+          "primary": false,
+          "type": "photo"
+        }
+      ],
+      "addresses": [
+        {
+          "type": "work",
+          "primary": false,
+          "operation": null,
+          "formatted": "2200 Mastercard Blvd O'Fallon MO 63368",
+          "streetAddress": "2200 Mastercard Blvd",
+          "locality": "O'Fallon",
+          "region": "MO",
+          "postalCode": "63368",
+          "country": "US",
+          "continent": null
+        },
+        {
+          "type": "home",
+          "primary": false,
+          "operation": null,
+          "formatted": "123 Picket Fence Lane St. Louis MO 63123 US",
+          "streetAddress": "123 Picket Fence Lane",
+          "locality": "St. Louis",
+          "region": "MO",
+          "postalCode": "63123",
+          "country": "US",
+          "continent": null
+        }
+      ],
+      "groups": [
+        {
+          "value": "group"
+        }
+      ],
+      "roles": [
+        {
+          "value": "role"
+        }
+      ],
+      "gender": "m",
+      "dateOfBirth": "1970-01-01",
+      "identifications": [
+        {
+          "value": "496881234",
+          "type": "ssn",
+          "country": "US"
+        }
+      ],
+      "preferenceInformation": {
+        "communicationOptions": [
+          {
+            "type": "general",
+            "channelId": "email",
+            "optedIn": false,
+            "optedInDate": null
+          }
+        ]
+      }
+    }
+  }
+}

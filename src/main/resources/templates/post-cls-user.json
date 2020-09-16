@@ -1,0 +1,99 @@
+{
+  "enrollment": {
+    "user": {
+      "externalId": "some-external-id-2",
+      "userId": "clsPostUser",
+      "userName": "ajit.chauhan@mastercard.com",
+      "name": {
+        "formatted": "Mr. Ajit Kumar Chauhan",
+        "familyName": "Chauhan",
+        "givenName": "Ajit",
+        "middleName": "Kumar",
+        "honorificPrefix": "Mr.",
+        "honorificSuffix": "Junior"
+      },
+      "displayName": "Ajit",
+      "nickName": "AKC",
+      "profileUrl": "https://www.google.com/",
+      "title": "SDE",
+      "userType": "Test User",
+      "preferredLanguage": "en_US",
+      "locale": "en_US",
+      "timezone": "America/Los_Angeles",
+      "active": true,
+      "password": "P@55w0rd",
+      "emails": [{
+        "type": "work",
+        "operation": "string",
+        "primary": false,
+        "value": "robert.d.tester@mastercard.com",
+        "display": "robert.d.tester@mastercard.com"
+      }],
+      "phoneNumbers": [{
+        "type": "work",
+        "operation": "string",
+        "primary": true,
+        "value": "tel:+16367222222",
+        "display": "blocked caller"
+      }],
+      "ims": [{
+        "value": "IM Value",
+        "display": "IM Away",
+        "primary": true,
+        "type": "IM Type"
+      }],
+      "photos": [{
+        "value": "https://photos.example.com/profilephoto/72930000000Ccne/F",
+        "display": "photo display",
+        "primary": false,
+        "type": "photo"
+      }],
+      "addresses": [{
+        "type": "work",
+        "primary": false,
+        "operation": null,
+        "streetAddress": "2200 Mastercard Blvd",
+        "streetAddress2": "Suite 666",
+        "locality": "O\u0027Fallon",
+        "region": "MO",
+        "postalCode": "63368",
+        "country": "US",
+        "continent": "North America"
+      },
+        {
+          "type": "home",
+          "primary": false,
+          "operation": null,
+          "streetAddress": "7700 Mastercard Blvd",
+          "streetAddress2": "Suite 777",
+          "locality": "O\u0027Fallon",
+          "region": "MO",
+          "postalCode": "63370",
+          "country": "US",
+          "continent": "North America"
+        }
+      ],
+      "groups": [{
+        "value": "group"
+      }],
+      "roles": [{
+        "value": "role"
+      }],
+      "gender": "m",
+      "dateOfBirth": "1970-01-01",
+      "identifications": [{
+        "value": "496881234",
+        "type": "ssn",
+        "country": "US"
+      }],
+      "preferenceInformation": {
+        "communicationOptions": [{
+          "type": "general",
+          "channelId": "email",
+          "optedIn": false,
+          "optedInDate": null
+        }]
+      }
+    }
+  }
+}
