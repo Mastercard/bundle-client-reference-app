@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **productLine** | **String** | The product line which this credit card belongs to |  [optional]
 **primary** | **Boolean** | A Boolean value indicating the &#39;primary&#39; or preferred account. The primary attribute value &#39;true&#39; must appear no more than once. |  [optional]
 **cardAlias** | **String** | A given alias for this credit card |  [optional]
-**last4Pan** | **Integer** |  |  [optional]
+**last4Pan** | **Integer** |  |  [optional] [readonly]
 **_object** | [**Object**](.md) | Extended account object (with localized metadata) for the given product of the requested user.  See Developer Portal (https://developer.mastercard.com/documentation/product-bundle-registration/v1) for additional documentation of the product-specific fields. |  [optional]
 
 

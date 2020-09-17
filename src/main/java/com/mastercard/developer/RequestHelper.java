@@ -27,7 +27,7 @@ public class RequestHelper {
 
     public static String BASE_URL = "mastercard.bundle.client.api.base.path";
 
-    private static String ACCESS_PATH = "/bundle-ref/profile";
+    private static String ACCESS_PATH = "/bundle/profile";
 
     public static String USER_ID = "specialpayUser";
 

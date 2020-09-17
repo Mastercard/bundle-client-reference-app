@@ -1,12 +1,12 @@
 
 
-# UserReadAccountResponse
+# EnrollmentResponseEnrollmentUser
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last4Pan** | **Integer** |  |  [optional] [readonly]
+**userId** | **String** | UserId of user |  [optional]
 
 
 

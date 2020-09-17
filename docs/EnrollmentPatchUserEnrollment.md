@@ -1,12 +1,12 @@
 
 
-# UserReadAccountResponse
+# EnrollmentPatchUserEnrollment
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last4Pan** | **Integer** |  |  [optional] [readonly]
+**user** | [**PatchUser**](PatchUser.md) |  |  [optional]
 
 
 

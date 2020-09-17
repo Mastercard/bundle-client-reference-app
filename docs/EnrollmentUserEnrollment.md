@@ -1,12 +1,12 @@
 
 
-# PatchDocumentValue
+# EnrollmentUserEnrollment
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**BundleUserData**](BundleUserData.md) |  |  [optional]
+**user** | [**User**](User.md) |  |  [optional]
 
 
 
