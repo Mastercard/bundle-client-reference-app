@@ -186,7 +186,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 8: [Enroll User to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user-to-cls) for user enrollment into products 
+> Case 8: [Enroll User to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user-to-cls) for user enrollment into CLS
 
   - Provides initial enrollment of a user into Consumer Lifecycle Services. This operation is used to complete the first user enrollment. 
   - For field level information, refer to model classes.
