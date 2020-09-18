@@ -195,14 +195,14 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users` | POST | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentResponse](docs/EnrollmentResponse.md) |
     
-> Case 9: [View User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#read-user-cls) to retrieve user enrolled to CLS.
+> Case 9: [View User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#read-user-from-cls) to retrieve user enrolled to CLS.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | GET | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-> Case 10: [Delete User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#delete-user-cls) to delete user enrolled to CLS.
+> Case 10: [Delete User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#delete-user-from-cls) to delete user enrolled to CLS.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
