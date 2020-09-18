@@ -186,6 +186,57 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
+> Case 8: [Enroll User to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user-to-cls) for user enrollment into products 
+
+  - Provides initial enrollment of a user into Consumer Lifecycle Services. This operation is used to complete the first user enrollment. 
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users` | POST | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentResponse](docs/EnrollmentResponse.md) |
+    
+> Case 9: [View User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#read-user-cls) to retrieve user enrolled to CLS.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | GET | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+> Case 10: [Delete User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#delete-user-cls) to delete user enrolled to CLS.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | DELETE | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+> Case 11: [Update User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user-cls) to update user enrolled to CLS.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PUT | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+Case 12: [Add to User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) to partially update and add fields to user enrolled to CLS.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+Case 13: [Replace in User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-in-user-cls) to partially update and replace fields in user enrolled to CLS.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+Case 14: [Remove in User Enrolled to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-in-user-cls) to partially update and remove fields in user enrolled to CLS.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
     
 ### Authorization <a name="authorization"></a>
 For configuring your API client, the `com.mastercard.developer.interceptors` package provides you some request interceptor classes. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.
