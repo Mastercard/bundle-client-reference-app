@@ -221,7 +221,7 @@ When the project builds successfully, you can run the following command to start
     
 Case 12: [Add to User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
   - Provides partial update capability of enrollment details by addition of fields for a user enrolled to Consumer Lifecycle Services.
-  - Allows addition of user data without requiring all other existing enrollment details to be passed in the update request.
+  - Allows addition of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -230,7 +230,7 @@ Case 12: [Add to User Enrolled to Consumer Lifecycle Services](https://developer
     
 Case 13: [Replace in User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-in-user-cls) 
   - Provides partial update capability of enrollment details by replacing field values for a user enrolled to Consumer Lifecycle Services.
-  - Allows replacing of user data without requiring all other existing enrollment details to be passed in the update request.
+  - Allows replacing of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
@@ -239,7 +239,7 @@ Case 13: [Replace in User Enrolled to Consumer Lifecycle Services](https://devel
     
 Case 14: [Remove in User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-in-user-cls)
   - Provides partial update capability of enrollment details by removing field values for a user enrolled to Consumer Lifecycle Services.
-  - Allows removal of user data without requiring all other existing enrollment details to be passed in the update request.
+  - Allows removal of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
   
     | URL | Method | Request | Response |
