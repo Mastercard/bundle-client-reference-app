@@ -219,7 +219,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PUT | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 12: [Add to User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
+Case 12: [Add Details in User Enrollment in CLS ](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
   - Provides partial update capability of enrollment details by addition of fields for a user enrolled to Consumer Lifecycle Services.
   - Allows addition of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
@@ -228,7 +228,7 @@ Case 12: [Add to User Enrolled to Consumer Lifecycle Services](https://developer
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 13: [Replace in User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-in-user-cls) 
+Case 13: [Replace Details in User Enrollment to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-in-user-cls) 
   - Provides partial update capability of enrollment details by replacing field values for a user enrolled to Consumer Lifecycle Services.
   - Allows replacing of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
@@ -237,7 +237,7 @@ Case 13: [Replace in User Enrolled to Consumer Lifecycle Services](https://devel
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 14: [Remove in User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-in-user-cls)
+Case 14: [Remove Details in User Enrollment to CLS](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-in-user-cls)
   - Provides partial update capability of enrollment details by removing field values for a user enrolled to Consumer Lifecycle Services.
   - Allows removal of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
