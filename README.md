@@ -211,7 +211,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | DELETE | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-> Case 11: [Update User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user-cls)
+> Case 11: [Update User's CLS Enrollment Details](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user-cls)
   - Provides update capability for enrollment details of a user enrolled to Consumer Lifecycle Services.
   - For field level information, refer to model classes.
   
@@ -219,7 +219,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PUT | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 12: [Add Details in User's Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
+Case 12: [Add Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
   - Provides partial update capability of enrollment details by addition of fields for a user enrolled to Consumer Lifecycle Services.
   - Allows addition of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
