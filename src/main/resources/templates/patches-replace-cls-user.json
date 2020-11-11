@@ -1,0 +1,33 @@
+{
+  "patches": [{
+    "op": "replace",
+    "path": "$.enrollment.user",
+    "from": "string",
+    "value": {
+      "enrollment": {
+        "user": {
+          "name": {
+            "familyName": "Test",
+            "formatted": "Api User Test Great",
+            "givenName": "Api",
+            "honorificPrefix": "Mr.",
+            "honorificSuffix": "Great",
+            "middleName": "User"
+          },
+          "active": true,
+          "displayName": "Api User Test",
+          "locale": "en_US",
+          "nickName": "AUT",
+          "password": "password",
+          "preferredLanguage": "en_US",
+          "profileUrl": "https://www.google.com",
+          "timezone": "America/Los_Angeles",
+          "title": "Engineer",
+          "userType": "B2C",
+          "dateOfBirth": "1970-01-01",
+          "gender": "m"
+        }
+      }
+    }
+  }]
+}

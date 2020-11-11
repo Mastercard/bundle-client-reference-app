@@ -186,6 +186,66 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
+> Case 8: [Enroll User to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user-to-cls)
+
+  - Provides initial enrollment of a user into Consumer Lifecycle Services. This operation is used to complete the first user enrollment or registration.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users` | POST | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentResponse](docs/EnrollmentResponse.md) |
+    
+> Case 9: [View User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#read-user-from-cls)
+  - Provides retrieval of enrollment details of a user enrolled to Consumer Lifecycle Services.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | GET | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+> Case 10: [Delete User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#delete-user-from-cls) 
+  - Provides deletion or removal of a user's enrollment from Consumer Lifecycle Services.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | DELETE | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+> Case 11: [Update User's CLS Enrollment Details](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user-cls)
+  - Provides update capability for enrollment details of a user enrolled to Consumer Lifecycle Services.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PUT | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+Case 12: [Add Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
+  - Provides partial update capability of enrollment details by addition of fields for a user enrolled to Consumer Lifecycle Services.
+  - Allows addition of user data without requiring other enrollment details to be passed in the request.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+Case 13: [Replace Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-in-user-cls) 
+  - Provides partial update capability of enrollment details by replacing field values for a user enrolled to Consumer Lifecycle Services.
+  - Allows replacing of user data without requiring other enrollment details to be passed in the request.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
+Case 14: [Remove Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-in-user-cls)
+  - Provides partial update capability of enrollment details by removing field values for a user enrolled to Consumer Lifecycle Services.
+  - Allows removal of user data without requiring other enrollment details to be passed in the request.
+  - For field level information, refer to model classes.
+  
+    | URL | Method | Request | Response |
+    | :-- | :----- | :------ | :------- |
+    | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
+    
     
 ### Authorization <a name="authorization"></a>
 For configuring your API client, the `com.mastercard.developer.interceptors` package provides you some request interceptor classes. These classes will take care of adding the correct [Authorization](https://github.com/Mastercard/oauth1-signer-java) header before sending the request.

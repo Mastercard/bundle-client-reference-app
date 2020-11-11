@@ -1,12 +1,13 @@
 
 
-# UserReadAccountResponse
+# ValueObject
 
+defines group or roles for user.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last4Pan** | **Integer** |  |  [optional] [readonly]
+**value** | **String** |  |  [optional]
 
 
 

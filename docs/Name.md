@@ -2,6 +2,7 @@
 
 # Name
 
+Name to capture different parts of the user's name
 ## Properties
 
 Name | Type | Description | Notes

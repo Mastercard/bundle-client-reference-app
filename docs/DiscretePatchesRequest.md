@@ -1,12 +1,12 @@
 
 
-# UserReadAccountResponse
+# DiscretePatchesRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**last4Pan** | **Integer** |  |  [optional] [readonly]
+**patches** | [**List&lt;DiscretePatchEntry&gt;**](DiscretePatchEntry.md) |  |  [optional]
 
 
 
