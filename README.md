@@ -19,7 +19,8 @@
 ## Overview <a name="overview"></a>
 The Consumer Product Enrollment(CPE) API was formerly the **Bundle Profile API**.
 
-This is a product enrollment service that allows a user to enroll with Mastercard solutions. The Mastercard solutions are preconfigured bundles comprised of multiple products and services. This API user enables the simultaneous user enrollment into the products within the solutions using optional consents and payment card accounts.
+This is a product enrollment service that allows a user to enroll with Mastercard solutions. The Mastercard solutions are preconfigured bundles comprised of multiple products and services. This API user enables the simultaneous user enrollment into the products within the solutions using optional consents and payment card accounts, and also provides the ability to optionally store consumer information with Mastercard Consumer Lifecycle Services domain.
+
 Consumer Product Enrollment enables:
  * New consumer enrollment into products and solutions
  * View and update consumer enrollment details
@@ -124,7 +125,7 @@ When the project builds successfully, you can run the following command to start
    
 ## Use Cases <a name="use-cases"></a>
 
-> Case 1: [Enroll User](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user) for user enrollment into products 
+> Case 1: [Enroll User](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#enroll-user)
 
   - Provides initial enrollment of a user into products and solutions. This operation is used to complete the first user enrollment. 
   - For field level information, refer to model classes.
@@ -133,14 +134,14 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users` | POST | [BundleUser](docs/BundleUser.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 2: [View Enrolled Products](https://developer.mastercard.com/consumer-management/documentation/use-cases/#view-enrolled-products) to Retrieve user’s enrolled products  
+> Case 2: [View Enrolled Products](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#view-enrolled-products)
   - Provides read-only view into the enrolled products of a given user. This operation is used to confirm enrollment status in concert with the POST enrollments and PATCH updates.
   
     | URL | Method | Request | Response |
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}` | GET | NA | [BundleUserResponse](docs/BundleUserResponse.md) |
 
-> Case 3: [Add Product](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-product) to add products for a user.
+> Case 3: [Add Product](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#add-product)
 
   - Adds product enrollment for the user. This operation occurs only after the initial user enrollment (POST) and applies to solution journeys that gradually add product capabilities as the user incrementally interacts with the solution.
   - For field level information, refer to model classes.
@@ -149,7 +150,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 4: [Update User](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user) to update user information across products.
+> Case 4: [Update User](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#update-user) 
 
   - Updates user information across products. This operation is called when a user’s personal information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
@@ -159,7 +160,7 @@ When the project builds successfully, you can run the following command to start
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 	
-> Case 5: [Add Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-payment-account) to add user account to the products.
+> Case 5: [Add Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-payment-account)
 
   - Provides addition of a payment account to a user. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
@@ -168,7 +169,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 6: [Remove Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-payment-account) to remove user’s account tagged on an enrolled product.
+> Case 6: [Remove Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#remove-payment-account) 
 
   -  Removes the payment account tagged with enrolled products. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
@@ -177,7 +178,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
-> Case 7: [Replace Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-payment-account) to Replace User’s account number for all products tied             to the existing payment card account number.
+> Case 7: [Replace Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#replace-payment-account) 
 
   - Update user payment account on all products tied to the existing primary account number. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
@@ -186,7 +187,7 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
     
-> Case 8: [Enroll User to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#enroll-user-to-cls)
+> Case 8: [Enroll User](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#enroll-user)
 
   - Provides initial enrollment of a user into Consumer Lifecycle Services. This operation is used to complete the first user enrollment or registration.
   - For field level information, refer to model classes.
@@ -195,7 +196,8 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users` | POST | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentResponse](docs/EnrollmentResponse.md) |
     
-> Case 9: [View User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#read-user-from-cls)
+> Case 9: [View User](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#view-user)
+  
   - Provides retrieval of enrollment details of a user enrolled to Consumer Lifecycle Services.
   - For field level information, refer to model classes.
   
@@ -203,7 +205,8 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | GET | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-> Case 10: [Delete User Enrolled to Consumer Lifecycle Services](https://developer.mastercard.com/consumer-management/documentation/use-cases/#delete-user-from-cls) 
+> Case 10: [Remove User](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#remove-user) 
+  
   - Provides deletion or removal of a user's enrollment from Consumer Lifecycle Services.
   - For field level information, refer to model classes.
   
@@ -211,7 +214,8 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | DELETE | NA | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-> Case 11: [Update User's CLS Enrollment Details](https://developer.mastercard.com/consumer-management/documentation/use-cases/#update-user-cls)
+> Case 11: [Update User](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#update-user)
+  
   - Provides update capability for enrollment details of a user enrolled to Consumer Lifecycle Services.
   - For field level information, refer to model classes.
   
@@ -219,7 +223,8 @@ When the project builds successfully, you can run the following command to start
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PUT | [EnrollmentUser](docs/EnrollmentUser.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 12: [Add Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-to-user-cls) 
+Case 12: [Partially Add User’s Details](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#partially-add-user-s-details) 
+  
   - Provides partial update capability of enrollment details by addition of fields for a user enrolled to Consumer Lifecycle Services.
   - Allows addition of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
@@ -228,7 +233,8 @@ Case 12: [Add Details in User's CLS Enrollment](https://developer.mastercard.com
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 13: [Replace Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#replace-in-user-cls) 
+Case 13: [Partially Revise User’s Details](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#partially-revise-user-s-details) 
+  
   - Provides partial update capability of enrollment details by replacing field values for a user enrolled to Consumer Lifecycle Services.
   - Allows replacing of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
@@ -237,7 +243,8 @@ Case 13: [Replace Details in User's CLS Enrollment](https://developer.mastercard
     | :-- | :----- | :------ | :------- |
     | `enrollment/users/{userid}` | PATCH | [DiscretePatchesRequest](docs/DiscretePatchesRequest.md) | [EnrollmentUserResponse](docs/EnrollmentUserResponse.md) |
     
-Case 14: [Remove Details in User's CLS Enrollment](https://developer.mastercard.com/consumer-management/documentation/use-cases/#remove-in-user-cls)
+Case 14: [Partally Remove User’s Details](https://developer.mastercard.com/consumer-management/documentation/use-cases/user-enrollment/#partally-remove-user-s-details)
+  
   - Provides partial update capability of enrollment details by removing field values for a user enrolled to Consumer Lifecycle Services.
   - Allows removal of user data without requiring other enrollment details to be passed in the request.
   - For field level information, refer to model classes.
