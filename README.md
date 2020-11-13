@@ -160,7 +160,7 @@ When the project builds successfully, you can run the following command to start
     | `/users/{userid}/patches` | POST | [BundleUserPatch](docs/BundleUserPatch.md) | [BundleUserResponse](docs/BundleUserResponse.md) |
 
 	
-> Case 5: [Add Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/#add-payment-account)
+> Case 5: [Add Payment Account](https://developer.mastercard.com/consumer-management/documentation/use-cases/products-enrollment/#add-payment-account)
 
   - Provides addition of a payment account to a user. This operation is called when a user’s payment information is refreshed as part of a profile update.
   - For field level information, refer to model classes.
