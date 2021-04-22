@@ -52,7 +52,8 @@ The Sandbox environment allows you to experiment with the API using a reference 
 
 * Clone the project - git clone https://github.com/Mastercard/bundle-client-ref.git.
 * Sign up to create a [Mastercard Developers account](https://developer.mastercard.com/account/sign-up). In case you already have an account, login and follow the below steps.
-* Create a new project in your account and add MastercardON API to your project.  
+* Create a new project in your account and add BundleEnablement API to your project.  
+* Check for the approved status in mastercard Developer portal post which approved client can access the API.
 * Configure project and download your sandbox signing keys. It will download a zip file.  
 * Unzip the downloaded key and select .p12 file(certificate) from zip and copy it to src/main/resources in the project folder.
 * Open `${project.basedir}/src/main/resources/application.properties` and configure the below parameters.
