@@ -8,6 +8,7 @@
     <name>bundle_client</name>
     <version>1.0.0</version>
     <description>Reference Application for Bundle Profile API</description>
+         
 
     <properties>
         <java.version>1.8</java.version>
